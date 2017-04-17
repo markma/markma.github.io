@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Mark" />
+
+
+
+<meta name="description" content="上节主要学习了Python语言的特色所在，以及一些基础的变量类型。这节主要学习Python的一些控制流工具。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-入门学习（二）">
+<meta property="og:url" content="http://markma.tk/posts/Python/Python-入门学习（二）/index.html">
+<meta property="og:site_name" content="Mark's Blog">
+<meta property="og:description" content="上节主要学习了Python语言的特色所在，以及一些基础的变量类型。这节主要学习Python的一些控制流工具。">
+<meta property="og:image" content="http://i2.hdslb.com/video/ee/ee2aa44bce1a6d7e4603700a0083b97c.jpg">
+<meta property="og:updated_time" content="2016-08-25T07:16:33.709Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python-入门学习（二）">
+<meta name="twitter:description" content="上节主要学习了Python语言的特色所在，以及一些基础的变量类型。这节主要学习Python的一些控制流工具。">
+<meta name="twitter:image" content="http://i2.hdslb.com/video/ee/ee2aa44bce1a6d7e4603700a0083b97c.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Python-入门学习（二） | Mark&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?fad5c01287c961d95e4fe533d91c8aab";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Mark</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">To do to make progress</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/tags/">分类</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/gallery/">相册</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:ma-mark@outlook.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/mark900" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/markma" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/mark900" title="知乎"></a>
+                            
+                                <a class="fa Coding" href="https://coding.net/u/maxiaohang" title="Coding"></a>
+                            
+                                <a class="fa 网易云音乐" href="http://music.163.com/#/user/home?id=115229883" title="网易云音乐"></a>
+                            
+                                <a class="fa QQ" href="http://wpa.qq.com/msgrd?v=3&uin=954373276&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Journal/">Journal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenLibrary/">OpenLibrary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Robot/">Robot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wiki/">Wiki</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">因为爱好，做着自己本不该做的事。为爱而活，不受羁绊！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mark</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Mark</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">To do to make progress</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/tags/">分类</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/gallery/">相册</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:ma-mark@outlook.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/mark900" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/markma" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/mark900" title="知乎"></a>
+                            
+                                <a class="fa Coding" target="_blank" href="https://coding.net/u/maxiaohang" title="Coding"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=115229883" title="网易云音乐"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=954373276&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-posts/Python/Python-入门学习（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/Python/Python-入门学习（二）/" class="article-date">
+      <time datetime="2016-08-13T09:12:20.000Z" itemprop="datePublished">2016-08-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python-入门学习（二）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><img src="http://i2.hdslb.com/video/ee/ee2aa44bce1a6d7e4603700a0083b97c.jpg" width="30%"></p>
+<blockquote>
+<p>上节主要学习了Python语言的特色所在，以及一些基础的变量类型。这节主要学习Python的一些控制流工具。<br><a id="more"></a></p>
+</blockquote>
+<h1 id="Python-入门学习-二"><a href="#Python-入门学习-二" class="headerlink" title="Python 入门学习(二)"></a>Python 入门学习(二)</h1><h2 id="if语句-if-Statements"><a href="#if语句-if-Statements" class="headerlink" title="if语句 if Statements"></a>if语句 if Statements</h2><p>if语句也许是最知名的控制类型.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">  </div><div class="line"><span class="meta">&gt;&gt;&gt; </span>x = int(input(<span class="string">"Please enter an integer: "</span>))   </div><div class="line">Please enter an integer: <span class="number">42</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">if</span> x &lt; <span class="number">0</span>:</div><div class="line"><span class="meta">... </span>     x = <span class="number">0</span></div><div class="line"><span class="meta">... </span>     print(<span class="string">'Negative changed to zero'</span>)</div><div class="line"><span class="meta">... </span><span class="keyword">elif</span> x == <span class="number">0</span>:</div><div class="line"><span class="meta">... </span>     print(<span class="string">'Zero'</span>)</div><div class="line"><span class="meta">... </span><span class="keyword">elif</span> x == <span class="number">1</span>:</div><div class="line"><span class="meta">... </span>     print(<span class="string">'Single'</span>)</div><div class="line"><span class="meta">... </span><span class="keyword">else</span>:</div><div class="line"><span class="meta">... </span>     print(<span class="string">'More'</span>)</div><div class="line">...</div><div class="line">More</div></pre></td></tr></table></figure></p>
+<h2 id="for语句-for-Statements"><a href="#for语句-for-Statements" class="headerlink" title="for语句 for Statements"></a>for语句 for Statements</h2><p>Python中的for语句和您在C或Pascal语言中的用法略有不同.它既不会遍历数列中的数字(如Pascal中一样),也不会让用户定义迭代步长和中止条件(如C),Python的for循环会以各项在序列中出现的顺序遍历序列(如列表或字符串)的所有项,例如(此处非双关语):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Measure some strings:</span></div><div class="line"><span class="meta">... </span>a = [<span class="string">'cat'</span>, <span class="string">'window'</span>, <span class="string">'defenestrate'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> a:</div><div class="line"><span class="meta">... </span>    print(x, len(x))</div><div class="line">...</div><div class="line">cat <span class="number">3</span></div><div class="line">window <span class="number">6</span></div><div class="line">defenestrate <span class="number">12</span></div></pre></td></tr></table></figure></p>
+<p>在循环中遍历序列时对其修改是不安全的(这只发生在可变序列类型中，如列表).如果您需要在遍历时(例如,复制选定选项)修改列表,您必须遍历一个拷贝.分片表达式会使这变得非常方便:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> a[:]: <span class="comment"># make a slice copy of the entire list</span></div><div class="line"><span class="meta">... </span>   <span class="keyword">if</span> len(x) &gt; <span class="number">6</span>: a.insert(<span class="number">0</span>, x)</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a</div><div class="line">[<span class="string">'defenestrate'</span>, <span class="string">'cat'</span>, <span class="string">'window'</span>, <span class="string">'defenestrate'</span>]</div></pre></td></tr></table></figure></p>
+<h2 id="range-函数-The-range-Function"><a href="#range-函数-The-range-Function" class="headerlink" title="range()函数 The range() Function"></a>range()函数 The range() Function</h2><p>如果您需要遍历数字序列，内置函数range正派上用场.它会生成数列,例如:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line"><span class="meta">... </span>    print(i)</div><div class="line">...</div><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">4</span></div></pre></td></tr></table></figure></p>
+<p>给定的终点并不在产生的序列之内;range(10)会产生10个数值，对这个长度为10的序列中所有项进行索引是合适的.也可以使range以其它数字开始或指定不同的增量(甚至可以是负数;有时这也叫做’步长’):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">####################</span></div><div class="line">range(<span class="number">5</span>, <span class="number">10</span>)</div><div class="line">   <span class="number">5</span> through <span class="number">9</span></div><div class="line"><span class="comment">####################</span></div><div class="line">range(<span class="number">0</span>, <span class="number">10</span>, <span class="number">3</span>)</div><div class="line">   <span class="number">0</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span></div><div class="line"><span class="comment">####################</span></div><div class="line">range(<span class="number">-10</span>, <span class="number">-100</span>, <span class="number">-30</span>)</div><div class="line">  <span class="number">-10</span>, <span class="number">-40</span>, <span class="number">-70</span></div></pre></td></tr></table></figure></p>
+<p>您可以结合range()和len()函数以遍历一个序列的索引,如下所示:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="string">'Mary'</span>, <span class="string">'had'</span>, <span class="string">'a'</span>, <span class="string">'little'</span>, <span class="string">'lamb'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</div><div class="line"><span class="meta">... </span>    print(i, a[i])</div><div class="line">...</div><div class="line"><span class="number">0</span> Mary</div><div class="line"><span class="number">1</span> had</div><div class="line"><span class="number">2</span> a</div><div class="line"><span class="number">3</span> little</div><div class="line"><span class="number">4</span> lamb</div></pre></td></tr></table></figure></p>
+<p>然而在大多数情况下,您可以很方便的使用enumerate()函数,详情请查看循环技巧.<br>如果您只是打印range函数,会出现奇怪的现象:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(range(<span class="number">10</span>))</div><div class="line">range(<span class="number">0</span>, <span class="number">10</span>)</div></pre></td></tr></table></figure></p>
+<p>range()会以多种方式返回类似列表的对象,事实上并非真正列表.在您遍历它时,它会返回一个有着连续项的所需的序列对象,但它并不会真正地生成列表，这样做可以节省空间.<br>我们说这个对象可迭代,意思是说适合作为函数和结构体的对象,以期在输入结束时从所获取的连续项中得到某种结果.我们已经看到for语句就是这样的迭代器.list()函数也是一个;它从可迭代量创建新列表:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>list(range(<span class="number">5</span>))</div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</div></pre></td></tr></table></figure></p>
+<p>之后我们将看到更多返回可迭代量及将可迭代量作为参数的函数.</p>
+<h2 id="break和continue语句及循环中的else子句-break-and-continue-Statements-and-else-Clauses-on-Loops"><a href="#break和continue语句及循环中的else子句-break-and-continue-Statements-and-else-Clauses-on-Loops" class="headerlink" title="break和continue语句及循环中的else子句 break and continue Statements, and else Clauses on Loops"></a>break和continue语句及循环中的else子句 break and continue Statements, and else Clauses on Loops</h2><p>break语句,像C语言中一样,跳出最小的封闭的for和while循环.continue语句,同样从C语言中借鉴而来,继续循环的下一次迭代.循环语句可以有else子句;它在穷尽列表(以for循环)或条件变为假(以while循环)循环终止时被执行,但循环被break终止时不执行.如下查寻质数的循环例子:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">10</span>):</div><div class="line"><span class="meta">... </span>    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2</span>, n):</div><div class="line"><span class="meta">... </span>        <span class="keyword">if</span> n % x == <span class="number">0</span>:</div><div class="line"><span class="meta">... </span>            print(n, <span class="string">'equals'</span>, x, <span class="string">'*'</span>, n//x)</div><div class="line"><span class="meta">... </span>            <span class="keyword">break</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">else</span>:</div><div class="line"><span class="meta">... </span>        <span class="comment"># loop fell through without finding a factor</span></div><div class="line"><span class="meta">... </span>        print(n, <span class="string">'is a prime number'</span>)</div><div class="line">...</div><div class="line"><span class="number">2</span> <span class="keyword">is</span> a prime number</div><div class="line"><span class="number">3</span> <span class="keyword">is</span> a prime number</div><div class="line"><span class="number">4</span> equals <span class="number">2</span> * <span class="number">2</span></div><div class="line"><span class="number">5</span> <span class="keyword">is</span> a prime number</div><div class="line"><span class="number">6</span> equals <span class="number">2</span> * <span class="number">3</span></div><div class="line"><span class="number">7</span> <span class="keyword">is</span> a prime number</div><div class="line"><span class="number">8</span> equals <span class="number">2</span> * <span class="number">4</span></div><div class="line"><span class="number">9</span> equals <span class="number">3</span> * <span class="number">3</span></div></pre></td></tr></table></figure></p>
+<h2 id="pass语句-pass-Statements"><a href="#pass语句-pass-Statements" class="headerlink" title="pass语句 pass Statements"></a>pass语句 pass Statements</h2><p>pass语句什么都不做.它只在语法上需要一条语句但程序不需要任何操作时使用.例如:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line"><span class="meta">... </span>    <span class="keyword">pass</span>  <span class="comment"># Busy-wait for keyboard interrupt (Ctrl+C)</span></div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>这通常用作创建最小的类:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">MyEmptyClass</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">pass</span></div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>pass可以在您编写新代码时作为函数或条件体的占位符，方便您以更抽象的层次考虑.pass默认将被忽略掉:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">initlog</span><span class="params">(*args)</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">pass</span>   <span class="comment"># Remember to implement this!</span></div><div class="line">...</div></pre></td></tr></table></figure></p>
+<h2 id="定义函数-Defining-Functions"><a href="#定义函数-Defining-Functions" class="headerlink" title="定义函数 Defining Functions"></a>定义函数 Defining Functions</h2><p>我们可以创建一个函数来写出一定范围内的斐波纳契数列:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span>    <span class="comment"># write Fibonacci series up to n</span></div><div class="line"><span class="meta">... </span>    <span class="string">"""Print a Fibonacci series up to n."""</span></div><div class="line"><span class="meta">... </span>    a, b = <span class="number">0</span>, <span class="number">1</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">while</span> a &lt; n:</div><div class="line"><span class="meta">... </span>        print(a, end=<span class="string">' '</span>)</div><div class="line"><span class="meta">... </span>        a, b = b, a+b</div><div class="line"><span class="meta">... </span>    print()</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Now call the function we just defined:</span></div><div class="line"><span class="meta">... </span>fib(<span class="number">2000</span>)</div><div class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">13</span> <span class="number">21</span> <span class="number">34</span> <span class="number">55</span> <span class="number">89</span> <span class="number">144</span> <span class="number">233</span> <span class="number">377</span> <span class="number">610</span> <span class="number">987</span> <span class="number">1597</span></div></pre></td></tr></table></figure></p>
+<p>关键字def作为函数定义的开头.之后必须跟着函数名和小括号包括的形参列表.从下一行的开始的表达式构成函数体,其中的所有行都必须缩进.<br>函数体的第一条语句可选为字符串;这个字符串是函数的文档字符亦或doctring.(更多关于docstrings的内容参考文档字符串部分.)Python提供了一些工具可以自动生成在线的或打印的文档,也可以让用户通过代码交互浏览;在您编写的代码中加入文档字符串是个很好的做法,因此请养成编写文档字符串的习惯.<br>函数执行时引入了一个专为函数本地变量提供的符号表.更准确而言,函数中所有变量赋值时都将其值储存在本地符号表中;变量引用时会先查看本地符号表，其次查看封装函数的本地符号表，再次查看全局符号表，最后查看内置函数名字表.这样,全局变量不能在一个函数内部被直接赋值(除非有global语句声明),虽然全局变量可在函数内被引用.<br>一个函数调用实参,该实参会在被调用函数的本地符号表中引用;这样,参数通过被值调用实现传递(值总是一个对象的引用,不是对象的值).[1]当一个函数调用另一个函数时,会为此调用创建一个新的本地符号表.<br>函数定义会在当前符号表中引用函数名.该函数名的值有一个被解释器认作用户定义函数的类型.这个值可以被赋给其它函数名.这即作为一个重命名机制:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>fib</div><div class="line">&lt;function fib at <span class="number">10042</span>ed0&gt;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f = fib</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f(<span class="number">100</span>)</div><div class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">13</span> <span class="number">21</span> <span class="number">34</span> <span class="number">55</span> <span class="number">89</span></div></pre></td></tr></table></figure></p>
+<p>如果您有了解过其它语言,您可能不认为fib是个函数,因为它没有返回值,因而更像一个过程.事实上,即使没有返回语句的函数也有一个返回值,尽管是个很无趣的值.这个值即None(其为内置名).如果作为惟一的值输入,解释器通常将不予理会.您可以用print()瞧到它.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>fib(<span class="number">0</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(fib(<span class="number">0</span>))</div><div class="line"><span class="keyword">None</span></div></pre></td></tr></table></figure></p>
+<p>编写函数返回以斐波那契数列的数字为元素的列表,相对于打印更加简便.(要注意return 的缩进。如果多一个Tab的缩进，将永远返回[0])<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">fib2</span><span class="params">(n)</span>:</span> <span class="comment"># return Fibonacci series up to n</span></div><div class="line"><span class="meta">... </span>    <span class="string">"""Return a list containing the Fibonacci series up to n."""</span></div><div class="line"><span class="meta">... </span>    result = []</div><div class="line"><span class="meta">... </span>    a, b = <span class="number">0</span>, <span class="number">1</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">while</span> a &lt; n:</div><div class="line"><span class="meta">... </span>        result.append(a)    <span class="comment"># see below</span></div><div class="line"><span class="meta">... </span>        a, b = b, a+b</div><div class="line"><span class="meta">... </span>    <span class="keyword">return</span> result</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f100 = fib2(<span class="number">100</span>)    <span class="comment"># call it</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f100                <span class="comment"># write the result</span></div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">21</span>, <span class="number">34</span>, <span class="number">55</span>, <span class="number">89</span>]</div></pre></td></tr></table></figure></p>
+<p>这个例子一般也用来说明Python的一些新特性:</p>
+<ul>
+<li>The return statement returns with a value from a function. Return without an expression argument returns None.Falling off the end of a function also returns None.</li>
+<li>The statement result.append(a) calls a method of the list object result. A method is a function that‘belongs’<br>to an object and is named obj.methodname, where obj is some object (this may be an expression), and methodname is<br>the name of a method that is defined by the object’s type. Different types define different methods. Methods of<br>different types may have the same name without causing ambiguity. (It is possible to define your own object types<br>and methods, using classes, see Classes) The method append() shown in the example is defined for list objects; it<br>adds a new element at the end of the list. In this example it is equivalent to result = result + [a], but more<br>efficient.</li>
+</ul>
+<h2 id="深入了解函数定义-More-on-Defining-Functions"><a href="#深入了解函数定义-More-on-Defining-Functions" class="headerlink" title="深入了解函数定义 More on Defining Functions"></a>深入了解函数定义 More on Defining Functions</h2><p>定义函数时也可以添加一些参数.有三种形式,可以组合使用.</p>
+<h3 id="默认参数值-Default-Argument-Values"><a href="#默认参数值-Default-Argument-Values" class="headerlink" title="默认参数值 Default Argument Values"></a>默认参数值 Default Argument Values</h3><p>为一个或多个参数指定默认值是最有用的形式.这样会创建一个函数,其参数可少于定义的数量.例如:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">ask_ok</span><span class="params">(prompt, retries=<span class="number">4</span>, complaint=<span class="string">'Yes or no, please!'</span>)</span>:</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        ok = input(prompt)</div><div class="line">        <span class="keyword">if</span> ok <span class="keyword">in</span> (<span class="string">'y'</span>, <span class="string">'ye'</span>, <span class="string">'yes'</span>):</div><div class="line">            <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">        <span class="keyword">if</span> ok <span class="keyword">in</span> (<span class="string">'n'</span>, <span class="string">'no'</span>, <span class="string">'nop'</span>, <span class="string">'nope'</span>):</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        retries = retries - <span class="number">1</span></div><div class="line">        <span class="keyword">if</span> retries &lt; <span class="number">0</span>:</div><div class="line">            <span class="keyword">raise</span> IOError(<span class="string">'refusenik user'</span>)</div><div class="line">        print(complaint)</div></pre></td></tr></table></figure></p>
+<p>这个函数可以几种方法被调用:</p>
+<ul>
+<li>giving only the mandatory argument: ask_ok(‘Do you really want to quit?’)</li>
+<li>giving one of the optional arguments: ask_ok(‘OK to overwrite the file?’, 2)</li>
+<li>or even giving all arguments: ask_ok(‘OK to overwrite the file?’, 2, ‘Come on, only yes or no!’)<br>这个例子中引用了关键字in.它将测试一个序列是否含有某个值. </li>
+</ul>
+<p>默认值在函数定义的范围内被赋值,所以此处将打印值5.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">i = <span class="number">5</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(arg=i)</span>:</span></div><div class="line">    print(arg)</div><div class="line"></div><div class="line">i = <span class="number">6</span></div><div class="line">f()</div></pre></td></tr></table></figure></p>
+<p>will print 5.<br>重要警告:默认值只被赋予一次.这在默认值为列表,字典或大部分类的实例等可变对象时会产生很大影响.例如,下面的函数将在子序列调用时积累传递给它的参数:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a, L=[])</span>:</span></div><div class="line">    L.append(a)</div><div class="line">    <span class="keyword">return</span> L</div><div class="line"></div><div class="line">print(f(<span class="number">1</span>))</div><div class="line">print(f(<span class="number">2</span>))</div><div class="line">print(f(<span class="number">3</span>))</div></pre></td></tr></table></figure></p>
+<p>This will print<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div></pre></td></tr></table></figure></p>
+<p>如果您不想和子序列调用共享默认值,您可以用以下写法替换:<br>def f(a, L=None):<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> L <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">    L = []</div><div class="line">L.append(a)</div><div class="line"><span class="keyword">return</span> L</div></pre></td></tr></table></figure></p>
+<p>如果您不想和子序列调用共享默认值,您可以用以下写法替换:</p>
+<h3 id="关键字参数-Keyword-Arguments"><a href="#关键字参数-Keyword-Arguments" class="headerlink" title="关键字参数 Keyword Arguments"></a>关键字参数 Keyword Arguments</h3><p>函数也可以使用keyword = value的关键字参数形式被调用.例如,以下函数:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parrot</span><span class="params">(voltage, state=<span class="string">'a stiff'</span>, action=<span class="string">'voom'</span>, type=<span class="string">'Norwegian Blue'</span>)</span>:</span></div><div class="line">    print(<span class="string">"-- This parrot wouldn't"</span>, action, end=<span class="string">' '</span>)</div><div class="line">    print(<span class="string">"if you put"</span>, voltage, <span class="string">"volts through it."</span>)</div><div class="line">    print(<span class="string">"-- Lovely plumage, the"</span>, type)</div><div class="line">    print(<span class="string">"-- It's"</span>, state, <span class="string">"!"</span>)</div></pre></td></tr></table></figure></p>
+<p>可以以下几种方式被调用:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">parrot(<span class="number">1000</span>)</div><div class="line">parrot(action = <span class="string">'VOOOOOM'</span>, voltage = <span class="number">1000000</span>)</div><div class="line">parrot(<span class="string">'a thousand'</span>, state = <span class="string">'pushing up the daisies'</span>)</div><div class="line">parrot(<span class="string">'a million'</span>, <span class="string">'bereft of life'</span>, <span class="string">'jump'</span>)</div></pre></td></tr></table></figure></p>
+<p>如下调用无效:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">parrot()                     <span class="comment"># required argument missing</span></div><div class="line">parrot(voltage=<span class="number">5.0</span>, <span class="string">'dead'</span>)  <span class="comment"># non-keyword argument following keyword</span></div><div class="line">parrot(<span class="number">110</span>, voltage=<span class="number">220</span>)     <span class="comment"># duplicate value for argument</span></div><div class="line">parrot(actor=<span class="string">'John Cleese'</span>)  <span class="comment"># unknown keyword</span></div></pre></td></tr></table></figure></p>
+<p>一般来说,一个参数列表必须先是位置参数,之后是关键字参数,其中的关键字必须从形式参数名中选取.形式参数是否有默认值无关紧要.没有参数能多次获取一个值-和位置参数相对应的形式参数在同一调用中不能用作关键字.这里有个因为这种限制导致错误的例子:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def function(a):</div><div class="line">...     pass</div><div class="line">...</div><div class="line">&gt;&gt;&gt; function(0, a=0)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File "&lt;stdin&gt;", line 1, in ?</div><div class="line">TypeError: function() got multiple values for keyword argument 'a'</div></pre></td></tr></table></figure></p>
+<p>当<strong>name形式的最终形参出现时,它将接收一个字典(查看映射类型－字典)包含除那些相对应的形式参数外的所有关键字参数.这可以和以<em>name形式的形参结合,该形式形参接收含有超出形参列表的位置参数的元组. (</em>name必须在</strong>name前.)例如,如果我们定义一个函数如下:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">cheeseshop</span><span class="params">(kind, *arguments, **keywords)</span>:</span></div><div class="line">    print(<span class="string">"-- Do you have any"</span>, kind, <span class="string">"?"</span>)</div><div class="line">    print(<span class="string">"-- I'm sorry, we're all out of"</span>, kind)</div><div class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> arguments:</div><div class="line">        print(arg)</div><div class="line">    print(<span class="string">"-"</span> * <span class="number">40</span>)</div><div class="line">    keys = sorted(keywords.keys())</div><div class="line">    <span class="keyword">for</span> kw <span class="keyword">in</span> keys:</div><div class="line">        print(kw, <span class="string">":"</span>, keywords[kw])</div></pre></td></tr></table></figure></p>
+<p>它可能被这样调用: It could be called like this:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cheeseshop(<span class="string">"Limburger"</span>, <span class="string">"It's very runny, sir."</span>,</div><div class="line">           <span class="string">"It's really very, VERY runny, sir."</span>,</div><div class="line">           shopkeeper=<span class="string">"Michael Palin"</span>,</div><div class="line">           client=<span class="string">"John Cleese"</span>,</div><div class="line">           sketch=<span class="string">"Cheese Shop Sketch"</span>)</div></pre></td></tr></table></figure></p>
+<p>自然它将打印:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-- Do you have any Limburger ?</div><div class="line">-- I'm sorry, we're all out of Limburger</div><div class="line">It's very runny, sir.</div><div class="line">It's really very, VERY runny, sir.</div><div class="line">----------------------------------------</div><div class="line">client : John Cleese</div><div class="line">shopkeeper : Michael Palin</div><div class="line">sketch : Cheese Shop Sketch</div></pre></td></tr></table></figure></p>
+<p>注意,关键字参数名列表在打印内容前被创建,通过keys()函数获取所有关键字结果并进行排序;否则参数打印顺序未定义.</p>
+<h3 id="可变参数列表-Arbitrary-Argument-Lists"><a href="#可变参数列表-Arbitrary-Argument-Lists" class="headerlink" title="可变参数列表 Arbitrary Argument Lists"></a>可变参数列表 Arbitrary Argument Lists</h3><p>最后,一个最不常用的选择是可以让函数调用可变个数的参数.这些参数被包装进一个元组(查看元组和序列).在这些可变个数的参数之前,可以有零到多个普通的参数:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_multiple_items</span><span class="params">(file, separator, *args)</span>:</span></div><div class="line">    file.write(separator.join(args))</div></pre></td></tr></table></figure></p>
+<p>通常,这些可变参数是形参列表中的最后项,因为它将接收所有剩余的传递给函数的参数.任何在*args参数之后的都是‘仅关键字’参数,意味它们只能用作关键字参数.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">concat</span><span class="params">(*args, sep=<span class="string">"/"</span>)</span>:</span></div><div class="line"><span class="meta">... </span>   <span class="keyword">return</span> sep.join(args)</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>concat(<span class="string">"earth"</span>, <span class="string">"mars"</span>, <span class="string">"venus"</span>)</div><div class="line"><span class="string">'earth/mars/venus'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>concat(<span class="string">"earth"</span>, <span class="string">"mars"</span>, <span class="string">"venus"</span>, sep=<span class="string">"."</span>)</div><div class="line"><span class="string">'earth.mars.venus'</span></div></pre></td></tr></table></figure></p>
+<h3 id="拆分参数列表-Unpacking-Argument-Lists"><a href="#拆分参数列表-Unpacking-Argument-Lists" class="headerlink" title="拆分参数列表 Unpacking Argument Lists"></a>拆分参数列表 Unpacking Argument Lists</h3><p>另有一种相反的情况: 当你要传递的参数已经是一个列表或元组,但要调用的函数却接受分开一个个的参数值. 这时候你要把已有的列表拆开来. 例如内建函数 range() 要独立的 start, stop 参数. 你可以在调用函数时加一个 *操作符来自动把参数列表拆开:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>list(range(<span class="number">3</span>, <span class="number">6</span>))            <span class="comment"># normal call with separate arguments</span></div><div class="line">[<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>args = [<span class="number">3</span>, <span class="number">6</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list(range(*args))            <span class="comment"># call with arguments unpacked from a list</span></div><div class="line">[<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div></pre></td></tr></table></figure></p>
+<p>同样的方法,字典可以通过**操作符传递参数:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">parrot</span><span class="params">(voltage, state=<span class="string">'a stiff'</span>, action=<span class="string">'voom'</span>)</span>:</span></div><div class="line"><span class="meta">... </span>    print(<span class="string">"-- This parrot wouldn't"</span>, action, end=<span class="string">' '</span>)</div><div class="line"><span class="meta">... </span>    print(<span class="string">"if you put"</span>, voltage, <span class="string">"volts through it."</span>, end=<span class="string">' '</span>)</div><div class="line"><span class="meta">... </span>    print(<span class="string">"E's"</span>, state, <span class="string">"!"</span>)</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">"voltage"</span>: <span class="string">"four million"</span>, <span class="string">"state"</span>: <span class="string">"bleedin' demised"</span>, <span class="string">"action"</span>: <span class="string">"VOOM"</span>&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>parrot(**d)</div><div class="line">-- This parrot wouldn<span class="string">'t VOOM if you put four million volts through it. E'</span>s bleedin<span class="string">' demised !</span></div></pre></td></tr></table></figure></p>
+<h3 id="Lambda形式-Lambda-Forms"><a href="#Lambda形式-Lambda-Forms" class="headerlink" title="Lambda形式 Lambda Forms"></a>Lambda形式 Lambda Forms</h3><p>出于适当的需要,有几种通常在功能性语言和 Lisp 中出现的功能加入到了 Python.通过 lambda 关键字,可以创建很小的匿名函数.这里有一个函数返回它的两个参数的和:”lambda a,b: a+b”. Lambda 形式可以用于任何需要的函数对象.出于语法限制,它们只能有一个单独的表达式.语义上讲,它们只是普通函数定义中的一个语法技巧.类似于嵌套函数定义,lambda 形式可以从包含范围内引用变量：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">make_incrementor</span><span class="params">(n)</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">return</span> <span class="keyword">lambda</span> x: x + n</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f = make_incrementor(<span class="number">42</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f(<span class="number">0</span>)</div><div class="line"><span class="number">42</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>f(<span class="number">1</span>)</div><div class="line"><span class="number">43</span></div></pre></td></tr></table></figure></p>
+<h3 id="文档字符串-Documentation-Strings"><a href="#文档字符串-Documentation-Strings" class="headerlink" title="文档字符串 Documentation Strings"></a>文档字符串 Documentation Strings</h3><p>这里介绍文档字符串的概念和格式.<br>第一行应该是关于对象用途的简介.简短起见,不用明确的陈述对象名或类型,因为它们可以从别的途径了解到（除非这个名字碰巧就是描述这个函数操作的动词）.这一行应该以大写字母开头,以句号结尾.<br>如果文档字符串有多行,第二行应该空出来,与接下来的详细描述明确分隔.接下来的文档应该有一或多段描述对象的调用约定、边界效应等.<br>Python的解释器不会从多行的文档字符串中去除缩进,所以必要的时候应当自己清除缩进.这符合通常的习惯.第一行之后的第一个非空行决定了整个文档的缩进格式.（我们不用第一行是因为它通常紧靠着起始的引号,缩进格式显示的不清楚.）留白”相当于”是字符串的起始缩进.每一行都不应该有缩进,如果有缩进的话,所有的留白都应该清除掉.留白的长度应当等于扩展制表符的宽度（通常是8个空格）.<br>以下是一个多行文档字符串的示例:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">my_function</span><span class="params">()</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="string">"""Do nothing, but document it.</span></div><div class="line">...</div><div class="line"><span class="meta">... </span>    No, really, it doesn't do anything.</div><div class="line"><span class="meta">... </span>    """</div><div class="line"><span class="meta">... </span>    <span class="keyword">pass</span></div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(my_function.__doc__)</div><div class="line">Do nothing, but document it.</div><div class="line"></div><div class="line">    No, really, it doesn<span class="string">'t do anything.</span></div></pre></td></tr></table></figure></p>
+<h2 id="插曲-编码类型-Intermezzo-Coding-Style"><a href="#插曲-编码类型-Intermezzo-Coding-Style" class="headerlink" title="插曲:编码类型 Intermezzo: Coding Style"></a>插曲:编码类型 Intermezzo: Coding Style</h2><p>既然您已经打算编写更长更复杂的Python程序块,是时候讨论下编码类型.许多语言都可以以不同的类型编写(简洁,格式化),其中一些更具可读性.让他人方便阅读您的代码是个不错的主意,采用一套漂亮的编码类型帮助巨大.<br>对于Python,PEP8已经成为大多数项目都支持的风格指南;它推行良好的可读性和养眼的编码类型.每一位Python开发人员都应有所了解;以下是从中摘出的一些重要的关键点:<br>使用4个空格缩进，不要使用tabs</p>
+<ul>
+<li>4个空格是不大(易读)不小(允许深层嵌套)的折中缩进量.制表符会导致些困惑,也容易被忽略. 4 spaces are a good compromise between small indentation (allows greater nesting depth) and large indentation (easier to read). Tabs introduce confusion, and are best left out.</li>
+<li>换行,以保证每行不超过79字符.<br>这可以帮助小屏幕用户，也可以在大屏幕上并排显示几个代码文件. This helps users with small displays and makes it possible to have several code files side-by-side on larger displays.</li>
+<li>使用空行来分隔函数和类,以及函数内部的大块代码.</li>
+<li>如果可能,在一行中添加相应的注释</li>
+<li>使用文档字符串</li>
+<li>操作符旁及逗号后使用空格,不要在在包围结构中直接使用: a = f(1, 2) + g(3, 4).</li>
+<li>类与函数命名一致;惯例对类使用驼峰式写法,对于函数和方法采用小写和下划线结合写法.一直使用self作为第一个方法参数的名字(详情请查看初探类)</li>
+<li>如果您打算在国际环境中使用,请不要使用奇怪的编码.Python默认编码UTF-8及纯ASCII为最佳选择.</li>
+<li>同样的,如果在读取及维护代码时很少用到其它语言，请不要在标识符中使用非ASCII字符<h2 id="附件Footnotes"><a href="#附件Footnotes" class="headerlink" title="附件Footnotes"></a>附件Footnotes</h2>实际上，调用对像参考……<br>[1]Actually, call by object reference would be a better description, since if a mutable object is passed, the caller will see any changes the callee makes to it (items inserted into a list).</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/posts/Python/Python-入门学习（二）/">Python-入门学习（二）</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Mark</a></p>
+        <p><span>发布时间:</span>2016-08-13, 17:12:20</p>
+        <p><span>最后更新:</span>2016-08-25, 15:16:33</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/posts/Python/Python-入门学习（二）/" title="Python-入门学习（二）">http://markma.tk/posts/Python/Python-入门学习（二）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://markma.tk/posts/Python/Python-入门学习（二）/　　作者: Mark" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/posts/OpenSource/开源库大全/">
+                    开源库大全
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/posts/Python/Python-入门学习（一）/">
+                    Python-入门学习（一）
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-入门学习-二"><span class="toc-number">1.</span> <span class="toc-text">Python 入门学习(二)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#if语句-if-Statements"><span class="toc-number">1.1.</span> <span class="toc-text">if语句 if Statements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for语句-for-Statements"><span class="toc-number">1.2.</span> <span class="toc-text">for语句 for Statements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#range-函数-The-range-Function"><span class="toc-number">1.3.</span> <span class="toc-text">range()函数 The range() Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#break和continue语句及循环中的else子句-break-and-continue-Statements-and-else-Clauses-on-Loops"><span class="toc-number">1.4.</span> <span class="toc-text">break和continue语句及循环中的else子句 break and continue Statements, and else Clauses on Loops</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pass语句-pass-Statements"><span class="toc-number">1.5.</span> <span class="toc-text">pass语句 pass Statements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义函数-Defining-Functions"><span class="toc-number">1.6.</span> <span class="toc-text">定义函数 Defining Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深入了解函数定义-More-on-Defining-Functions"><span class="toc-number">1.7.</span> <span class="toc-text">深入了解函数定义 More on Defining Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#默认参数值-Default-Argument-Values"><span class="toc-number">1.7.1.</span> <span class="toc-text">默认参数值 Default Argument Values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键字参数-Keyword-Arguments"><span class="toc-number">1.7.2.</span> <span class="toc-text">关键字参数 Keyword Arguments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可变参数列表-Arbitrary-Argument-Lists"><span class="toc-number">1.7.3.</span> <span class="toc-text">可变参数列表 Arbitrary Argument Lists</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拆分参数列表-Unpacking-Argument-Lists"><span class="toc-number">1.7.4.</span> <span class="toc-text">拆分参数列表 Unpacking Argument Lists</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda形式-Lambda-Forms"><span class="toc-number">1.7.5.</span> <span class="toc-text">Lambda形式 Lambda Forms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档字符串-Documentation-Strings"><span class="toc-number">1.7.6.</span> <span class="toc-text">文档字符串 Documentation Strings</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插曲-编码类型-Intermezzo-Coding-Style"><span class="toc-number">1.8.</span> <span class="toc-text">插曲:编码类型 Intermezzo: Coding Style</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附件Footnotes"><span class="toc-number">1.9.</span> <span class="toc-text">附件Footnotes</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Python-入门学习（二）　| Mark's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="posts/Python/Python-入门学习（二）/" data-title="Python-入门学习（二）" data-url="http://markma.tk/posts/Python/Python-入门学习（二）/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"markma"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/posts/OpenSource/开源库大全/" title="上一篇: 开源库大全">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/posts/Python/Python-入门学习（一）/" title="下一篇: Python-入门学习（一）">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/Qt串口开发QextserialPort/">Qt串口开发QextserialPort</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/QtStudy/Qt常见错误汇总/">Qt 常见错误汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/Qt绘图库QCustomplot/">Qt绘图库 QCustomPlot</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/cpp机器人库robot-library/">cpp机器人库robot-library</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/开源库大全/">开源库大全</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Python/Python-入门学习（二）/">Python-入门学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Python/Python-入门学习（一）/">Python-入门学习（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/QtStudy/Qt中界面类名的修改/">Qt ui界面调用</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Hexo/HEXO-Github-快速搭建属于自己的博客/">HEXO+Github Create your Blog</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Journal/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Mark
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 27;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

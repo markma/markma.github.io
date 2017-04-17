@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Mark" />
+
+
+
+<meta name="description" content="程序员要站在巨人的肩膀上。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开源库大全">
+<meta property="og:url" content="http://markma.tk/posts/OpenSource/开源库大全/index.html">
+<meta property="og:site_name" content="Mark's Blog">
+<meta property="og:description" content="程序员要站在巨人的肩膀上。">
+<meta property="og:updated_time" content="2016-08-18T03:32:42.348Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开源库大全">
+<meta name="twitter:description" content="程序员要站在巨人的肩膀上。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>开源库大全 | Mark&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?fad5c01287c961d95e4fe533d91c8aab";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Mark</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">To do to make progress</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/tags/">分类</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/gallery/">相册</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:ma-mark@outlook.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/mark900" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/markma" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/mark900" title="知乎"></a>
+                            
+                                <a class="fa Coding" href="https://coding.net/u/maxiaohang" title="Coding"></a>
+                            
+                                <a class="fa 网易云音乐" href="http://music.163.com/#/user/home?id=115229883" title="网易云音乐"></a>
+                            
+                                <a class="fa QQ" href="http://wpa.qq.com/msgrd?v=3&uin=954373276&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Journal/">Journal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenLibrary/">OpenLibrary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Qt/">Qt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Robot/">Robot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wiki/">Wiki</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">因为爱好，做着自己本不该做的事。为爱而活，不受羁绊！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Mark</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Mark</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">To do to make progress</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/tags/">分类</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/gallery/">相册</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:ma-mark@outlook.com" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/mark900" title="新浪微博"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/markma" title="GitHub"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/mark900" title="知乎"></a>
+                            
+                                <a class="fa Coding" target="_blank" href="https://coding.net/u/maxiaohang" title="Coding"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=115229883" title="网易云音乐"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=954373276&site=qq&menu=yes" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-posts/OpenSource/开源库大全" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/OpenSource/开源库大全/" class="article-date">
+      <time datetime="2016-08-17T01:58:14.000Z" itemprop="datePublished">2016-08-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      开源库大全
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/OpenSource/">OpenSource</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenLibrary/">OpenLibrary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Wiki/">Wiki</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>程序员要站在巨人的肩膀上。<br><a id="more"></a></p>
+<h2 id="3D图形引擎"><a href="#3D图形引擎" class="headerlink" title="3D图形引擎"></a>3D图形引擎</h2><p>  openGL，事实上的图形学工业标准，提供图形学底层接口，直接使用openGL，对编程有较高要求。</p>
+</blockquote>
+<p>  openInventor , 对openGL简单地进行了封装，连添加节点地步骤也和openGL相似，不过是由类来操作，更直观一些。目前已经很少人用。</p>
+<p>  OSG ， 基于openGL的3d图形引擎，团队有200多人。一个功能覆盖比较全面的openGL封装，但封装还是不彻底，OSG官方文档也不详细，不过在openGL完全可以找到对应的底层函数。在科学计算方面应用广泛，可以使用最新的软硬件技术。</p>
+<p>  OGRE ， 基于 openGL或 DirectX3D 的3d图形引擎，团队人数是个位。这个引擎专注于渲染，其他模块可以找其他的开源库来支持，灵活性高。封装比OSG更高层。OGRE的场景管理器非常有特色，这个封装将其与OSG的封装程度隔离开来。另外，与OSG相反，OGRE的性能被大量实际工程所验证，适合快速开发商业软件。</p>
+<p>  Irrlicht ， 基于 openGL或 DirectX3D 的3d图形引擎，来自于德国的引擎。 性能优良，不过更新太慢了。</p>
+<h2 id="开源CAD"><a href="#开源CAD" class="headerlink" title="开源CAD"></a>开源CAD</h2><p>  openCASCADE，一个开源的CAD引擎，擅长处理3D建模任务。<br>  Draftsight   2D CAD，商业版本，兼容dwg，免费使用，仅需要每年一次邮箱激活<br>  QCAD         2D CAD，这是开源的社区版本，另有收费的商业版本<br>  BRL-CAD      美国陆军使用，三维实体建模系统<br>  FreeCAD      普通用途的2D/3D CAD<br>  sailcut      制作船只的CAD<br>  NaroCAD      参数2D/3D CAD<br>  Archimedes   建筑师使用的CAD<br>  Blender      可以作为CAD使用（使用额外的插件和设置）<br>  PythonCad    2D CAD<br>  Varkon       参数2D/3D CAD<br>  Open CASCADE 几乎所有开源CAD使用的CAD核心，建模能力很强，但其本身显示性能一般。</p>
+<h2 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h2><p>  SAX，一个开源的、轻量级的XML工具，最初被java用作XML工具而广泛使用，后来有了其他的接口。</p>
+<p>  Xerces，Apache的项目，已经有十年的历史，致力于提供高性能、模块化和扩展性。它尽量少使用类模板、</p>
+<pre><code>RTTI及#ifdef等宏定义。 http://xerces.apache.org/
+</code></pre><p>  Open XML SDK提供了可用于开发Open XMLDocuments（DOCX, XLSX, PPTX）开源类库，具体支持功能如下：<br>      1、可高性能处理生成文字处理文档、电子表格、幻灯片演示文档；<br>      2、支持文档修改，例如删除文档跟踪内容；<br>      3、支持数据和内容查询、提取，例如将Docx文档转换为Html网页格式、或者从电子表格中提取数据。</p>
+<pre><code>https://github.com/OfficeDev/Open-XML-SDK
+</code></pre><h2 id="图形语言工具"><a href="#图形语言工具" class="headerlink" title="图形语言工具"></a>图形语言工具</h2><p>  VRML,(Virtual Reality Modeling Language)是一种使用文本保存图形信息的标准，在CAD系统的保存<br>  格式中常见，已经被广泛使用。mp4格式就是基于它的。<a href="http://en.wikipedia.org/wiki/VRML" target="_blank" rel="external">http://en.wikipedia.org/wiki/VRML</a></p>
+<h2 id="界面工具"><a href="#界面工具" class="headerlink" title="界面工具"></a>界面工具</h2><p>   Qt 这个不用多说了，非常常用的GUI库，学习快，使用方便。并且跨平台，还有一些非常实用的功能，比如对多线程、数据库、XML、网络等的支持。</p>
+<p>   CEGUI 也是一个著名的界面库，相对于Qt，它强调界面的个性化。用户使用CEGUI可以制作出非常漂亮的UI，在游戏中使用比较多。</p>
+<h2 id="安装包制作工具"><a href="#安装包制作工具" class="headerlink" title="安装包制作工具"></a>安装包制作工具</h2><p>   WIX   这是一个经典的安装包制作工具，但现在用的人少了。</p>
+<p>   NSIS 一个操作简单、小巧高效的安装包制作工具，推荐。</p>
+<h2 id="图片处理"><a href="#图片处理" class="headerlink" title="图片处理"></a>图片处理</h2><p>  Inkscape 一款开源的矢量图制作工具。制作时，直接把jpg、png、bmp等常见格式导入Inkscape，再另存为svg等格式，即完成工作。</p>
+<blockquote>
+<p>以下内容为网上找到的其他人整理的，很不错，网址： <a href="http://www.cppblog.com/merlinfang/archive/2014/12/26/209311.aspx" target="_blank" rel="external">http://www.cppblog.com/merlinfang/archive/2014/12/26/209311.aspx</a></p>
+</blockquote>
+<h2 id="值得学习的C语言开源项目"><a href="#值得学习的C语言开源项目" class="headerlink" title="值得学习的C语言开源项目"></a>值得学习的C语言开源项目</h2><ul>
+<li><ol>
+<li>Webbench<br>Webbench是一个在linux下使用的非常简单的网站压测工具。它使用fork()模拟多个客户端同时访问我们设定的URL，测试网站在压力下工作的性能，最多可以模拟3万个并发连接去测试网站的负载能力。Webbench使用C语言编写, 代码实在太简洁，源码加起来不到600行。</li>
+</ol>
+</li>
+</ul>
+<p>下载链接：<a href="http://home.tiscali.cz/~cz210552/webbench.html" target="_blank" rel="external">http://home.tiscali.cz/~cz210552/webbench.html</a></p>
+<ul>
+<li><ol>
+<li>Tinyhttpd<br>tinyhttpd是一个超轻量型Http Server，使用C语言开发，全部代码只有502行(包括注释)，附带一个简单的Client，可以通过阅读这段代码理解一个 Http Server 的本质。</li>
+</ol>
+</li>
+</ul>
+<p>下载链接：<a href="http://sourceforge.net/projects/tinyhttpd/" target="_blank" rel="external">http://sourceforge.net/projects/tinyhttpd/</a></p>
+<ul>
+<li><ol>
+<li>cJSON<br>cJSON是C语言中的一个JSON编解码器，非常轻量级，C文件只有500多行，速度也非常理想。</li>
+</ol>
+</li>
+</ul>
+<p>cJSON也存在几个弱点，虽然功能不是非常强大，但cJSON的小身板和速度是最值得赞赏的。其代码被非常好地维护着，结构也简单易懂，可以作为一个非常好的C语言项目进行学习。</p>
+<p>项目主页:<a href="http://sourceforge.net/projects/cjson/" target="_blank" rel="external">http://sourceforge.net/projects/cjson/</a></p>
+<ul>
+<li><ol>
+<li>CMockery<br>cmockery是google发布的用于C单元测试的一个轻量级的框架。它很小巧，对其他开源包没有依赖，对被测试代码侵入性小。cmockery的源代码行数不到3K，你阅读一下will_return和mock的源代码就一目了然了。</li>
+</ol>
+</li>
+</ul>
+<p>主要特点：</p>
+<p>免费且开源，google提供技术支持；<br>轻量级的框架，使测试更加快速简单；<br>避免使用复杂的编译器特性，对老版本的编译器来讲，兼容性好;<br>并不强制要求待测代码必须依赖C99标准，这一特性对许多嵌入式系统的开发很有用<br>下载链接：<a href="http://code.google.com/p/cmockery/downloads/list" target="_blank" rel="external">http://code.google.com/p/cmockery/downloads/list</a></p>
+<ul>
+<li><ol>
+<li>Libev<br>libev是一个开源的事件驱动库，基于epoll，kqueue等OS提供的基础设施。其以高效出名，它可以将IO事件，定时器，和信号统一起来，统一放在事件处理这一套框架下处理。基于Reactor模式，效率较高，并且代码精简（4.15版本8000多行），是学习事件驱动编程的很好的资源。</li>
+</ol>
+</li>
+</ul>
+<p>下载链接：<a href="http://software.schmorp.de/pkg/libev.html" target="_blank" rel="external">http://software.schmorp.de/pkg/libev.html</a></p>
+<ul>
+<li><ol>
+<li>Memcached<br>Memcached 是一个高性能的分布式内存对象缓存系统，用于动态Web应用以减轻数据库负载。它通过在内存中缓存数据和对象来减少读取数据库的次数，从而提供动态数据库驱动网站的速度。Memcached 基于一个存储键/值对的 hashmap。Memcached-1.4.7的代码量还是可以接受的，只有10K行左右。</li>
+</ol>
+</li>
+</ul>
+<p>下载地址：<a href="http://memcached.org/" target="_blank" rel="external">http://memcached.org/</a></p>
+<ul>
+<li><ol>
+<li>Lua<br>Lua很棒，Lua是巴西人发明的，这些都令我不爽，但是还不至于脸红，最多眼红。</li>
+</ol>
+</li>
+</ul>
+<p>让我脸红的是Lua的源代码，百分之一百的ANSI C，一点都不掺杂。在任何支持ANSI C编译器的平台上都可以轻松编译通过。我试过，真是一点废话都没有。Lua的代码数量足够小，5.1.4仅仅1.5W行，去掉空白行和注释估计能到1W行。</p>
+<p>下载地址：<a href="http://www.lua.org/" target="_blank" rel="external">http://www.lua.org/</a></p>
+<ul>
+<li><ol>
+<li>SQLite<br>SQLite是一个开源的嵌入式关系数据库，实现自包容、零配置、支持事务的SQL数据库引擎。 其特点是高度便携、使用方便、结构紧凑、高效、可靠。足够小，大致3万行C代码，250K。</li>
+</ol>
+</li>
+</ul>
+<p>下载地址：<a href="http://www.sqlite.org/" target="_blank" rel="external">http://www.sqlite.org/</a> 。</p>
+<ul>
+<li><ol>
+<li>UNIX v6<br>UNIX V6 的内核源代码包括设备驱动程序在内 约有1 万行，这个数量的源代码，初学者是能够充分理解的。有一种说法是一个人所能理解的代码量上限为1 万行，UNIX V6的内核源代码从数量上看正好在这个范围之内。看到这里，大家是不是也有“如果只有1万行的话没准儿我也能学会”的想法呢？</li>
+</ol>
+</li>
+</ul>
+<p>另一方面，最近的操作系统，例如Linux 最新版的内核源代码据说超过了1000 万行。就算不是初学者，想完全理解全部代码基本上也是不可能的。</p>
+<p>下载地址：<a href="http://minnie.tuhs.org/cgi-bin/utree.pl?file=V6" target="_blank" rel="external">http://minnie.tuhs.org/cgi-bin/utree.pl?file=V6</a></p>
+<ul>
+<li><ol>
+<li>NETBSD<br>NetBSD是一个免费的，具有高度移植性的 UNIX-like 操作系统，是现行可移植平台最多的操作系统，可以在许多平台上执行，从 64bit alpha 服务器到手持设备和嵌入式设备。NetBSD计划的口号是：”Of course it runs NetBSD”。它设计简洁，代码规范，拥有众多先进特性，使得它在业界和学术界广受好评。由于简洁的设计和先进的特征，使得它在生产和研究方面，都有卓越的表现，而且它也有受使用者支持的完整的源代码。许多程序都可以很容易地通过NetBSD Packages Collection获得。</li>
+</ol>
+</li>
+</ul>
+<p>下载地址：<a href="http://www.netbsd.org/" target="_blank" rel="external">http://www.netbsd.org/</a></p>
+<h2 id="C-开源库大全"><a href="#C-开源库大全" class="headerlink" title="C++开源库大全"></a>C++开源库大全</h2><p></p><h3><a name="t0"></a><a name="t0" target="_blank"></a>标准库</h3><p></p>
+<ul><br><li><a href="http://en.wikipedia.org/wiki/C%2B%2B_Standard_Library%20target=" target="_blank">C++ Standard Library</a>：是一系列类和函数的集合，使用核心语言编写，也是C++ISO自身标准的一部分。</li><br><li><a href="http://en.wikipedia.org/wiki/Standard_Template_Library%20target=" target="_blank">Standard Template Library</a>：标准模板库</li><br><li><a href="http://en.wikipedia.org/wiki/C_POSIX_library%20target=" target="_blank">C POSIX library</a>&nbsp;： POSIX系统的C标准库规范</li><br><li><a href="https://github.com/cplusplus%20target=" target="_blank">ISO C++ Standards Committee</a>&nbsp;：C++标准委员会</li><br></ul><br><h3><a name="t1"></a><a name="t1" target="_blank"></a>框架</h3><br><p>C++通用框架和库&nbsp;</p><br><ul><br><li><a href="http://stdcxx.apache.org/%20target=" target="_blank">Apache C++ Standard Library</a>：是一系列算法，容器，迭代器和其他基本组件的集合</li><br><li><a href="http://stlab.adobe.com/%20target=" target="_blank">ASL</a>&nbsp;：Adobe源代码库提供了同行的评审和可移植的C++源代码库。</li><br><li><a href="https://github.com/boostorg%20target=" target="_blank">Boost</a>&nbsp;：大量通用C++库的集合。</li><br><li><a href="https://github.com/bloomberg/bde%20target=" target="_blank">BDE</a>&nbsp;：来自于彭博资讯实验室的开发环境。</li><br><li><a href="http://libcinder.org/%20target=" target="_blank">Cinder</a>：提供专业品质创造性编码的开源开发社区。</li><br><li><a href="http://ryan.gulix.cl/fossil.cgi/cxxomfort/%20target=" target="_blank">Cxxomfort</a>：轻量级的，只包含头文件的库，将C++ 11的一些新特性移植到C++03中。</li><br><li><a href="http://dlib.net/%20target=" target="_blank">Dlib</a>：使用契约式编程和现代C++科技设计的通用的跨平台的C++库。</li><br><li><a href="https://github.com/paulhodge/EASTL%20target=" target="_blank">EASTL</a>&nbsp;：EA-STL公共部分</li><br><li><a href="https://github.com/sumeetchhetri/ffead-cpp%20target=" target="_blank">ffead-cpp</a>&nbsp;：企业应用程序开发框架</li><br><li><a href="https://github.com/facebook/folly%20target=" target="_blank">Folly</a>：由Facebook开发和使用的开源C++库</li><br><li><a href="https://github.com/julianstorer/JUCE%20target=" target="_blank">JUCE</a>&nbsp;：包罗万象的C++类库，用于开发跨平台软件</li><br><li><a href="https://github.com/facebook/libphenom%20target=" target="_blank">libPhenom</a>：用于构建高性能和高度可扩展性系统的事件框架。</li><br><li><a href="https://github.com/sourcey/libsourcey%20target=" target="_blank">LibSourcey</a>&nbsp;：用于实时的视频流和高性能网络应用程序的C++11 evented IO</li><br><li><a href="https://github.com/koanlogic/libu%20target=" target="_blank">LibU</a>&nbsp;： C语言写的多平台工具库</li><br><li><a href="http://loki-lib.sourceforge.net/%20target=" target="_blank">Loki</a>&nbsp;：C++库的设计，包括常见的设计模式和习语的实现。</li><br><li><a href="https://code.google.com/p/mili/%20target=" target="_blank">MiLi</a>&nbsp;：只含头文件的小型C++库</li><br><li><a href="http://www.openframeworks.cc/%20target=" target="_blank">openFrameworks</a>&nbsp;：开发C++工具包，用于创意性编码。</li><br><li><a href="http://qt-project.org/%20target=" target="_blank">Qt</a>&nbsp;：跨平台的应用程序和用户界面框架</li><br><li><a href="http://code.google.com/p/reason/%20target=" target="_blank">Reason</a>&nbsp;：跨平台的框架，使开发者能够更容易地使用Java，.Net和Python，同时也满足了他们对C++性能和优势的需求。</li><br><li><a href="http://root.cern.ch/%20target=" target="_blank">ROOT</a>&nbsp;：具备所有功能的一系列面向对象的框架，能够非常高效地处理和分析大量的数据，为欧洲原子能研究机构所用。</li><br><li><a href="http://www.stlport.org/%20target=" target="_blank">STLport</a>：是STL具有代表性的版本</li><br><li><a href="http://stxxl.sourceforge.net/%20target=" target="_blank">STXXL</a>：用于额外的大型数据集的标准模板库。</li><br><li><a href="http://www.ultimatepp.org/%20target=" target="_blank">Ultimate++</a>&nbsp;：C++跨平台快速应用程序开发框架</li><br><li><a href="http://sourceforge.net/projects/wtl/%20target=" target="_blank">Windows Template Library</a>：用于开发Windows应用程序和UI组件的C++库</li><br><li><a href="https://github.com/jll63/yomm11%20target=" target="_blank">Yomm11</a>&nbsp;：C++11的开放multi-methods.</li><br></ul><br><h3><a name="t2"></a><a name="t2" target="_blank"></a>人工智能</h3><br><ul><br><li><a href="https://github.com/aigamedev/btsk%20target=" target="_blank">btsk</a>&nbsp;：游戏行为树启动器工具</li><br><li><a href="http://eodev.sourceforge.net/%20target=" target="_blank">Evolving Objects</a>：基于模板的，ANSI C++演化计算库，能够帮助你非常快速地编写出自己的随机优化算法。</li><br><li><a href="https://github.com/andrometa/neu%20target=" target="_blank">Neu</a>：C++11框架，编程语言集，用于创建人工智能应用程序的多用途软件系统。</li><br></ul><br><h3><a name="t3"></a><a name="t3" target="_blank"></a>异步事件循环</h3><br><ul><br><li><a href="http://think-async.com/%20target=" target="_blank">Boost.Asio</a>：用于网络和底层I/O编程的跨平台的C++库。</li><br><li><a href="http://libev.schmorp.de/%20target=" target="_blank">libev</a>&nbsp;：功能齐全，高性能的时间循环，轻微地仿效libevent，但是不再像libevent一样有局限性，也修复了它的一些bug。</li><br><li><a href="http://libevent.org/%20target=" target="_blank">libevent</a>&nbsp;：事件通知库</li><br><li><a href="https://github.com/joyent/libuv%20target=" target="_blank">libuv</a>&nbsp;：跨平台异步I/O。</li><br></ul><br><h3><a name="t4"></a><a name="t4" target="_blank"></a>音频</h3><br><p>音频，声音，音乐，数字化音乐库&nbsp;</p><br><ul><br><li><a href="http://www.fmod.org/%20target=" target="_blank">FMOD</a>&nbsp;：易于使用的跨平台的音频引擎和音频内容的游戏创作工具。</li><br><li><a href="https://github.com/micknoise/Maximilian%20target=" target="_blank">Maximilian</a>&nbsp;：C++音频和音乐数字信号处理库</li><br><li><a href="http://www.openal.org/%20target=" target="_blank">OpenAL</a>&nbsp;：开源音频库—跨平台的音频API</li><br><li><a href="http://opus-codec.org/%20target=" target="_blank">Opus</a>：一个完全开放的，免版税的，高度通用的音频编解码器</li><br><li><a href="http://www.speex.org/%20target=" target="_blank">Speex</a>：免费编解码器，为Opus所废弃</li><br><li><a href="https://github.com/TonicAudio/Tonic%20target=" target="_blank">Tonic</a>： C++易用和高效的音频合成</li><br><li><a href="http://xiph.org/vorbis/%20target=" target="_blank">Vorbis</a>： Ogg Vorbis是一种完全开放的，非专有的，免版税的通用压缩音频格式。</li><br></ul><br><h3><a name="t5"></a><a name="t5" target="_blank"></a>生态学</h3><br><p>生物信息，基因组学和生物技术&nbsp;</p><br><ul><br><li><a href="http://molpopgen.github.io/libsequence/%20target=" target="_blank">libsequence</a>：用于表示和分析群体遗传学数据的C++库。</li><br><li><a href="http://www.seqan.de/%20target=" target="_blank">SeqAn</a>：专注于生物数据序列分析的算法和数据结构。</li><br><li><a href="https://github.com/ekg/vcflib%20target=" target="_blank">Vcflib</a>&nbsp;：用于解析和处理VCF文件的C++库</li><br><li><a href="https://github.com/jewmanchue/wham%20target=" target="_blank">Wham</a>：直接把联想测试应用到BAM文件的基因结构变异。</li><br></ul><br><h3><a name="t6"></a><a name="t6" target="_blank"></a>压缩</h3><br><p>压缩和归档库&nbsp;</p><br><ul><br><li><a href="http://www.bzip.org/%20target=" target="_blank">bzip2</a>：一个完全免费，免费专利和高质量的数据压缩</li><br><li><a href="https://bitbucket.org/attila_afra/doboz/overview%20target=" target="_blank">doboz</a>：能够快速解压缩的压缩库</li><br><li><a href="https://icculus.org/physfs/%20target=" target="_blank">PhysicsFS</a>：对各种归档提供抽象访问的库，主要用于视频游戏，设计灵感部分来自于Quake3的文件子系统。</li><br><li><a href="https://projects.kde.org/projects/frameworks/karchive%20target=" target="_blank">KArchive</a>：用于创建，读写和操作文件档案（例如zip和 tar）的库，它通过QIODevice的一系列子类，使用gzip格式，提供了透明的压缩和解压缩的数据。</li><br><li><a href="https://code.google.com/p/lz4/%20target=" target="_blank">LZ4</a>&nbsp;：非常快速的压缩算法</li><br><li><a href="https://code.google.com/p/lzham/%20target=" target="_blank">LZHAM</a>&nbsp;：无损压缩数据库，压缩比率跟LZMA接近，但是解压缩速度却要快得多。</li><br><li><a href="http://www.7-zip.org/sdk.html%20target=" target="_blank">LZMA</a>&nbsp;：7z格式默认和通用的压缩方法。</li><br><li><a href="http://www.matcode.com/lzmat.htm%20target=" target="_blank">LZMAT</a>&nbsp;：及其快速的实时无损数据压缩库</li><br><li><a href="https://code.google.com/p/miniz/%20target=" target="_blank">miniz</a>：单一的C源文件，紧缩/膨胀压缩库，使用zlib兼容API，ZIP归档读写，PNG写方式。</li><br><li><a href="https://github.com/nmoinvaz/minizip%20target=" target="_blank">Minizip</a>：Zlib最新bug修复，支持PKWARE磁盘跨越，AES加密和IO缓冲。</li><br><li><a href="https://code.google.com/p/snappy/%20target=" target="_blank">Snappy</a>&nbsp;：快速压缩和解压缩</li><br><li><a href="http://zlib.net/%20target=" target="_blank">ZLib</a>&nbsp;：非常紧凑的数据流压缩库</li><br><li><a href="http://zziplib.sourceforge.net/%20target=" target="_blank">ZZIPlib</a>：提供ZIP归档的读权限。</li><br></ul><br><h3><a name="t7"></a><a name="t7" target="_blank"></a>并发性</h3><br><p>并发执行和多线程&nbsp;</p><br><ul><br><li><a href="https://github.com/kylelutz/compute%20target=" target="_blank">Boost.Compute</a>&nbsp;：用于OpenCL的C++GPU计算库</li><br><li><a href="https://github.com/HSA-Libraries/Bolt%20target=" target="_blank">Bolt</a>&nbsp;：针对GPU进行优化的C++模板库</li><br><li><a href="https://github.com/schlangster/cpp.react%20target=" target="_blank">C++React</a>&nbsp;：用于C++11的反应性编程库</li><br><li><a href="https://www.threadingbuildingblocks.org/%20target=" target="_blank">Intel TBB</a>&nbsp;：Intel线程构件块</li><br><li><a href="https://github.com/libclsph/libclsph%20target=" target="_blank">Libclsph</a>：基于OpenCL的GPU加速SPH流体仿真库</li><br><li><a href="https://www.khronos.org/opencl/%20target=" target="_blank">OpenCL</a>&nbsp;：并行编程的异构系统的开放标准</li><br><li><a href="http://openmp.org/%20target=" target="_blank">OpenMP</a>：OpenMP API</li><br><li><a href="http://thrust.github.io/%20target=" target="_blank">Thrust</a>&nbsp;：类似于C++标准模板库的并行算法库</li><br><li><a href="https://github.com/STEllAR-GROUP/hpx/%20target=" target="_blank">HPX</a>&nbsp;：用于任何规模的并行和分布式应用程序的通用C++运行时系统</li><br><li><a href="https://github.com/ddemidov/vexcl%20target=" target="_blank">VexCL</a>&nbsp;：用于OpenCL/CUDA 的C++向量表达式模板库。</li><br></ul><br><h3><a name="t8"></a><a name="t8" target="_blank"></a>容器</h3><br><ul><br><li><a href="https://code.google.com/p/cpp-btree/%20target=" target="_blank">C++ B-tree</a>&nbsp;：基于B树数据结构，实现命令内存容器的模板库</li><br><li><a href="https://github.com/goossaert/hashmap%20target=" target="_blank">Hashmaps</a>： C++中开放寻址哈希表算法的实现</li><br></ul><br><h3><a name="t9"></a><a name="t9" target="_blank"></a>密码学</h3><br><ul><br><li><a href="http://bcrypt.sourceforge.net/%20target=" target="_blank">Bcrypt</a>&nbsp;：一个跨平台的文件加密工具，加密文件可以移植到所有可支持的操作系统和处理器中。</li><br><li><a href="https://github.com/fffaraz/awesome-cpp/blob/master%20target=" target="_blank">BeeCrypt</a>：</li><br><li><a href="http://botan.randombit.net/%20target=" target="_blank">Botan</a>： C++加密库</li><br><li><a href="http://www.cryptopp.com/%20target=" target="_blank">Crypto++</a>：一个有关加密方案的免费的C++库</li><br><li><a href="https://www.gnupg.org/%20target=" target="_blank">GnuPG</a>： OpenPGP标准的完整实现</li><br><li><a href="http://www.gnutls.org/%20target=" target="_blank">GnuTLS</a>&nbsp;：实现了SSL，TLS和DTLS协议的安全通信库</li><br><li><a href="http://www.gnu.org/software/libgcrypt/%20target=" target="_blank">Libgcrypt</a></li><br><li><a href="https://github.com/fffaraz/awesome-cpp/blob/master%20target=" target="_blank">libmcrypt</a></li><br><li><a href="http://www.libressl.org/%20target=" target="_blank">LibreSSL</a>：免费的SSL/TLS协议，属于2014 OpenSSL的一个分支</li><br><li><a href="https://github.com/libtom/libtomcrypt%20target=" target="_blank">LibTomCrypt</a>：一个非常全面的，模块化的，可移植的加密工具</li><br><li><a href="https://github.com/jedisct1/libsodium%20target=" target="_blank">libsodium</a>：基于NaCI的加密库，固执己见，容易使用</li><br><li><a href="http://www.lysator.liu.se/~nisse/nettle/%20target=" target="_blank">Nettle</a>&nbsp;底层的加密库</li><br><li><a href="http://www.openssl.org/%20target=" target="_blank">OpenSSL</a>&nbsp;： 一个强大的，商用的，功能齐全的，开放源代码的加密库。</li><br><li><a href="https://github.com/kokke/tiny-AES128-C%20target=" target="_blank">Tiny AES128 in C</a>&nbsp;：用C实现的一个小巧，可移植的实现了AES128ESB的加密算法</li><br></ul><br><h3><a name="t10"></a><a name="t10" target="_blank"></a>数据库</h3><br><p>数据库，SQL服务器，ODBC驱动程序和工具&nbsp;</p><br><ul><br><li><a href="https://github.com/paulftw/hiberlite%20target=" target="_blank">hiberlite</a>&nbsp;：用于Sqlite3的C++对象关系映射</li><br><li><a href="https://github.com/redis/hiredis%20target=" target="_blank">Hiredis</a>： 用于Redis数据库的很简单的C客户端库</li><br><li><a href="https://github.com/google/leveldb%20target=" target="_blank">LevelDB</a>： 快速键值存储库</li><br><li><a href="http://symas.com/mdb/%20target=" target="_blank">LMDB</a>：符合数据库四大基本元素的嵌入键值存储</li><br><li><a href="http://www.tangentsoft.net/mysql++/%20target=" target="_blank">MySQL++</a>：封装了MySql的C API的C++ 包装器</li><br><li><a href="https://github.com/facebook/rocksdb%20target=" target="_blank">RocksDB</a>：来自Facebook的嵌入键值的快速存储</li><br><li><a href="http://www.sqlite.org/%20target=" target="_blank">SQLite</a>：一个完全嵌入式的，功能齐全的关系数据库，只有几百KB，可以正确包含到你的项目中。</li><br></ul><br><h3><a name="t11"></a><a name="t11" target="_blank"></a>调试</h3><br><p>调试库， 内存和资源泄露检测，单元测试&nbsp;</p><br><ul><br><li><a href="http://www.boost.org/doc/libs/master/libs/test/doc/html/index.html%20target=" target="_blank">Boost.Test</a>：Boost测试库</li><br><li><a href="https://github.com/philsquared/Catch%20target=" target="_blank">Catch</a>：一个很时尚的，C++原生的框架，只包含头文件，用于单元测试，测试驱动开发和行为驱动开发。</li><br><li><a href="http://www.freedesktop.org/wiki/Software/cppunit/%20target=" target="_blank">CppUnit</a>：由JUnit移植过来的C++测试框架</li><br><li><a href="http://www.cmake.org/cmake/help/v2.8.8/ctest.html%20target=" target="_blank">CTest</a>：CMake测试驱动程序</li><br><li><a href="http://code.google.com/p/googletest/%20target=" target="_blank">googletest</a>：谷歌C++测试框架</li><br><li><a href="https://github.com/deplinenoise/ig-debugheap%20target=" target="_blank">ig-debugheap</a>：用于跟踪内存错误的多平台调试堆</li><br><li><a href="https://github.com/zorgnax/libtap%20target=" target="_blank">libtap</a>：用C语言编写测试</li><br><li><a href="http://www.almostinfinite.com/memtrack.html%20target=" target="_blank">MemTrack</a>&nbsp;—用于C++跟踪内存分配</li><br><li><a href="https://bitbucket.org/jonasmeyer/microprofile/overview%20target=" target="_blank">microprofile</a>- 跨平台的网络试图分析器</li><br><li><a href="http://www.jera.com/techinfo/jtns/jtn002.html%20target=" target="_blank">minUnit</a>&nbsp;：使用C写的迷你单元测试框架，只使用了两个宏</li><br><li><a href="https://github.com/Celtoys/Remotery%20target=" target="_blank">Remotery</a>：用于web视图的单一C文件分析器</li><br><li><a href="http://unittest-cpp.sourceforge.net/%20target=" target="_blank">UnitTest++</a>：轻量级的C++单元测试框架</li><br></ul><br><h3><a name="t12"></a><a name="t12" target="_blank"></a>游戏引擎</h3><br><ul><br><li><a href="http://www.cocos2d-x.org/%20target=" target="_blank">Cocos2d-x</a>&nbsp;：一个跨平台框架，用于构建2D游戏，互动图书，演示和其他图形应用程序。</li><br><li><a href="http://gritengine.com/%20target=" target="_blank">Grit</a>&nbsp;：社区项目，用于构建一个免费的游戏引擎，实现开放的世界3D游戏。</li><br><li><a href="http://irrlicht.sourceforge.net/%20target=" target="_blank">Irrlicht</a>&nbsp;：C++语言编写的开源高性能的实时#D引擎</li><br><li><a href="http://polycode.org/%20target=" target="_blank">Polycode</a>：C++实现的用于创建游戏的开源框架（与Lua绑定）。</li><br></ul><br><h3><a name="t13"></a><a name="t13" target="_blank"></a>图形用户界面</h3><br><ul><br><li><a href="http://cegui.org.uk/%20target=" target="_blank">CEGUI</a>&nbsp;： 很灵活的跨平台GUI库</li><br><li><a href="http://www.fltk.org/index.php%20target=" target="_blank">FLTK</a>&nbsp;：快速，轻量级的跨平台的C++GUI工具包。</li><br><li><a href="http://www.gtk.org/%20target=" target="_blank">GTK+</a>： 用于创建图形用户界面的跨平台工具包</li><br><li><a href="http://www.gtkmm.org/en/%20target=" target="_blank">gtkmm</a>&nbsp;：用于受欢迎的GUI库GTK+的官方C++接口。</li><br><li><a href="https://github.com/ocornut/imgui%20target=" target="_blank">imgui</a>：拥有最小依赖关系的立即模式图形用户界面</li><br><li><a href="http://librocket.com/%20target=" target="_blank">libRocket</a>&nbsp;：&nbsp;<a href="http://librocket.com/%20target=" target="_blank">libRocket</a>&nbsp;是一个C++ HTML/CSS 游戏接口中间件</li><br><li><a href="http://mygui.info/%20target=" target="_blank">MyGUI</a>&nbsp;：快速，灵活，简单的GUI</li><br><li><a href="http://invisible-island.net/ncurses/%20target=" target="_blank">Ncurses</a>：终端用户界面</li><br><li><a href="http://qcustomplot.com/%20target=" target="_blank">QCustomPlot</a>&nbsp;：没有更多依赖关系的Qt绘图控件</li><br><li><a href="http://qwt.sourceforge.net/%20target=" target="_blank">Qwt</a>&nbsp;：用户与技术应用的Qt 控件</li><br><li><a href="http://qwtplot3d.sourceforge.net/%20target=" target="_blank">QwtPlot3D</a>&nbsp;：功能丰富的基于Qt/OpenGL的C++编程库，本质上提供了一群3D控件</li><br><li><a href="https://github.com/Twolewis/OtterUI%20target=" target="_blank">OtterUI</a>&nbsp;：&nbsp;<a href="https://github.com/Twolewis/OtterUI%20target=" target="_blank">OtterUI</a>&nbsp;是用于嵌入式系统和互动娱乐软件的用户界面开发解决方案</li><br><li><a href="http://pdcurses.sourceforge.net/%20target=" target="_blank">PDCurses</a>&nbsp;包含源代码和预编译库的公共图形函数库</li><br><li><a href="http://wxwidgets.org/%20target=" target="_blank">wxWidgets</a>&nbsp;C++库，允许开发人员使用一个代码库可以为widows， Mac OS X，Linux和其他平台创建应用程序</li><br></ul><br><h3><a name="t14"></a><a name="t14" target="_blank"></a>图形</h3><br><ul><br><li><a href="https://github.com/bkaradzic/bgfx%20target=" target="_blank">bgfx</a>：跨平台的渲染库</li><br><li><a href="http://www.cairographics.org/%20target=" target="_blank">Cairo</a>：支持多种输出设备的2D图形库</li><br><li><a href="https://github.com/horde3d/Horde3D%20target=" target="_blank">Horde3D</a>&nbsp;一个小型的3D渲染和动画引擎</li><br><li><a href="https://github.com/mosra/magnum%20target=" target="_blank">magnum</a>&nbsp;C++11和OpenGL 2D/3D 图形引擎</li><br><li><a href="http://www.ogre3d.org/%20target=" target="_blank">Ogre 3D</a>&nbsp;用C++编写的一个面向场景，实时，灵活的3D渲染引擎（并非游戏引擎）</li><br><li><a href="http://www.openscenegraph.org/%20target=" target="_blank">OpenSceneGraph</a>&nbsp;具有高性能的开源3D图形工具包</li><br><li><a href="http://www.panda3d.org/%20target=" target="_blank">Panda3D</a>&nbsp;用于3D渲染和游戏开发的框架，用Python和C++编写。</li><br><li><a href="https://github.com/google/skia%20target=" target="_blank">Skia</a>&nbsp;用于绘制文字，图形和图像的完整的2D图形库</li><br><li><a href="https://github.com/urho3d/Urho3D%20target=" target="_blank">urho3d</a>&nbsp;跨平台的渲染和游戏引擎。</li><br></ul><br><h3><a name="t15"></a><a name="t15" target="_blank"></a>图像处理</h3><br><ul><br><li><a href="http://www.boost.org/doc/libs/1_56_0/libs/gil/doc/index.html%20target=" target="_blank">Boost.GIL</a>：通用图像库</li><br><li><a href="http://cimg.sourceforge.net/%20target=" target="_blank">CImg</a>&nbsp;：用于图像处理的小型开源C++工具包</li><br><li><a href="http://www.xdp.it/cximage.htm%20target=" target="_blank">CxImage</a>&nbsp;：用于加载，保存，显示和转换的图像处理和转换库，可以处理的图片格式包括 BMP, JPEG, GIF, PNG, TIFF, MNG, ICO, PCX, TGA, WMF, WBMP, JBG, J2K。</li><br><li><a href="http://freeimage.sourceforge.net/%20target=" target="_blank">FreeImage</a>&nbsp;：开源库，支持现在多媒体应用所需的通用图片格式和其他格式。</li><br><li><a href="http://gdcm.sourceforge.net/wiki/index.php/Main_Page%20target=" target="_blank">GDCM</a>：Grassroots DICOM 库</li><br><li><a href="http://www.itk.org/%20target=" target="_blank">ITK</a>：跨平台的开源图像分析系统</li><br><li><a href="http://www.imagemagick.org/script/api.php%20target=" target="_blank">Magick++</a>：ImageMagick程序的C++接口</li><br><li><a href="http://www.imagemagick.org/script/api.php%20target=" target="_blank">MagickWnd</a>：ImageMagick程序的C++接口</li><br><li><a href="http://opencv.org/%20target=" target="_blank">OpenCV</a>&nbsp;： 开源计算机视觉类库</li><br><li><a href="https://code.google.com/p/tesseract-ocr/%20target=" target="_blank">tesseract-ocr</a>：OCR引擎</li><br><li><a href="https://github.com/ukoethe/vigra%20target=" target="_blank">VIGRA</a>&nbsp;：用于图像分析通用C++计算机视觉库</li><br><li><a href="http://www.vtk.org/%20target=" target="_blank">VTK</a>&nbsp;：用于3D计算机图形学，图像处理和可视化的开源免费软件系统。</li><br></ul><br><h3><a name="t16"></a><a name="t16" target="_blank"></a>国际化</h3><br><ul><br><li><a href="http://www.gnu.org/software/gettext/%20target=" target="_blank">gettext</a>&nbsp;：GNU `gettext’</li><br><li><a href="http://site.icu-project.org/%20target=" target="_blank">IBM ICU</a>：提供Unicode 和全球化支持的C、C++ 和Java库</li><br><li><a href="http://www.gnu.org/software/libiconv/%20target=" target="_blank">libiconv</a>&nbsp;：用于不同字符编码之间的编码转换库</li><br></ul><br><h3><a name="t17"></a><a name="t17" target="_blank"></a>Jason</h3><br><ul><br><li><a href="https://github.com/cesanta/frozen%20target=" target="_blank">frozen</a>&nbsp;： C/C++的Jason解析生成器</li><br><li><a href="https://github.com/akheron/jansson%20target=" target="_blank">Jansson</a>&nbsp;：进行编解码和处理Jason数据的C语言库</li><br><li><a href="https://github.com/chrismanning/jbson%20target=" target="_blank">jbson</a>&nbsp;：C++14中构建和迭代BSON data,和Json 文档的库</li><br><li><a href="https://github.com/jeaye/jeayeson%20target=" target="_blank">JeayeSON</a>：非常健全的C++ JSON库，只包含头文件</li><br><li><a href="https://github.com/hjiang/jsonxx%20target=" target="_blank">JSON++</a>&nbsp;： C++ JSON 解析器</li><br><li><a href="https://github.com/udp/json-parser%20target=" target="_blank">json-parser</a>：用可移植的ANSI C编写的JSON解析器，占用内存非常少</li><br><li><a href="https://github.com/dropbox/json11%20target=" target="_blank">json11</a>&nbsp;：一个迷你的C++11 JSON库</li><br><li><a href="https://github.com/amir-s/jute%20target=" target="_blank">jute</a>&nbsp;：非常简单的C++ JSON解析器</li><br><li><a href="https://github.com/vincenthz/libjson%20target=" target="_blank">ibjson</a>：C语言中的JSON解析和打印库，很容易和任何模型集成。</li><br><li><a href="http://sourceforge.net/projects/libjson/%20target=" target="_blank">libjson</a>：轻量级的JSON库</li><br><li><a href="https://github.com/kazuho/picojson%20target=" target="_blank">PicoJSON</a>：C++中JSON解析序列化，只包含头文件</li><br><li><a href="https://github.com/gaudecker/qt-json%20target=" target="_blank">qt-json</a>&nbsp;：用于JSON数据和 QVariant层次间的相互解析的简单类</li><br><li><a href="https://github.com/flavio/qjson%20target=" target="_blank">QJson</a>：将JSON数据映射到QVariant对象的基于Qt的库</li><br><li><a href="https://github.com/miloyip/rapidjson%20target=" target="_blank">RapidJSON</a>： 用于C++的快速JSON 解析生成器，包含SAX和DOM两种风格的API</li><br><li><a href="https://github.com/lloyd/yajl%20target=" target="_blank">YAJL</a>&nbsp;：C语言中快速流JSON解析库</li><br></ul><br><h3><a name="t18"></a><a name="t18" target="_blank"></a>日志</h3><br><ul><br><li><a href="http://www.boost.org/doc/libs/1_56_0/libs/log/doc/html/index.html%20target=" target="_blank">Boost.Log</a>&nbsp;：设计非常模块化，并且具有扩展性</li><br><li><a href="https://github.com/easylogging/easyloggingpp%20target=" target="_blank">easyloggingpp</a>：C++日志库，只包含单一的头文件。</li><br><li><a href="http://log4cpp.sourceforge.net/%20target=" target="_blank">Log4cpp</a>&nbsp;：一系列C++类库，灵活添加日志到文件，系统日志，IDSA和其他地方。</li><br><li><a href="http://www.templog.org/%20target=" target="_blank">templog</a>：轻量级C++库，可以添加日志到你的C++应用程序中</li><br></ul><br><h3><a name="t19"></a><a name="t19" target="_blank"></a>机器学习</h3><br><ul><br><li><a href="https://github.com/BVLC/caffe%20target=" target="_blank">Caffe</a>&nbsp;：快速的神经网络框架</li><br><li><a href="https://github.com/liuliu/ccv%20target=" target="_blank">CCV</a>&nbsp;：以C语言为核心的现代计算机视觉库</li><br><li><a href="http://www.mlpack.org/%20target=" target="_blank">mlpack</a>&nbsp;：可扩展的C++机器学习库</li><br><li><a href="https://github.com/Itseez/opencv%20target=" target="_blank">OpenCV</a>：开源计算机视觉库</li><br><li><a href="https://github.com/GHamrouni/Recommender%20target=" target="_blank">Recommender</a>：使用协同过滤进行产品推荐/建议的C语言库。</li><br><li><a href="https://github.com/shogun-toolbox/shogun%20target=" target="_blank">SHOGUN</a>：Shogun 机器学习工具</li><br><li><a href="https://code.google.com/p/sofia-ml/%20target=" target="_blank">sofia-ml</a>&nbsp;：用于机器学习的快速增量算法套件</li><br></ul><br><h3><a name="t20"></a><a name="t20" target="_blank"></a>数学</h3><br><ul><br><li><a href="http://arma.sourceforge.net/%20target=" target="_blank">Armadillo</a>&nbsp;：高质量的C++线性代数库，速度和易用性做到了很好的平衡。语法和MatlAB很相似</li><br><li><a href="https://code.google.com/p/blaze-lib/%20target=" target="_blank">blaze</a>：高性能的C++数学库，用于密集和稀疏算法。</li><br><li><a href="http://ceres-solver.org/%20target=" target="_blank">ceres-solver</a>&nbsp;：来自谷歌的C++库，用于建模和解决大型复杂非线性最小平方问题。</li><br><li><a href="http://www.cgal.org/%20target=" target="_blank">CGal</a>： 高效，可靠的集合算法集合</li><br><li><a href="http://cmldev.net/%20target=" target="_blank">cml</a>&nbsp;：用于游戏和图形的免费C++数学库</li><br><li><a href="http://eigen.tuxfamily.org/%20target=" target="_blank">Eigen</a>&nbsp;：高级C++模板头文件库，包括线性代数，矩阵，向量操作，数值解决和其他相关的算法。</li><br><li><a href="http://ggt.sourceforge.net/%20target=" target="_blank">GMTL</a>：数学图形模板库是一组广泛实现基本图形的工具。</li><br><li><a href="https://gmplib.org/%20target=" target="_blank">GMP</a>：用于个高精度计算的C/C++库，处理有符号整数，有理数和浮点数。</li><br></ul><br><h3><a name="t21"></a><a name="t21" target="_blank"></a>多媒体</h3><br><ul><br><li><a href="http://gstreamer.freedesktop.org/%20target=" target="_blank">GStreamer</a>&nbsp;：构建媒体处理组件图形的库</li><br><li><a href="http://www.live555.com/liveMedia/%20target=" target="_blank">LIVE555 Streaming Media</a>&nbsp;：使用开放标准协议(RTP/RTCP, RTSP, SIP) 的多媒体流库</li><br><li><a href="https://wiki.videolan.org/LibVLC%20target=" target="_blank">libVLC</a>&nbsp;：libVLC (VLC SDK)媒体框架</li><br><li><a href="https://github.com/wang-bin/QtAV%20target=" target="_blank">QtAv</a>：基于Qt和FFmpeg的多媒体播放框架，能够帮助你轻而易举地编写出一个播放器</li><br><li><a href="http://www.libsdl.org/%20target=" target="_blank">SDL</a>&nbsp;：简单直控媒体层</li><br><li><a href="http://www.sfml-dev.org/%20target=" target="_blank">SFML</a>&nbsp;：快速，简单的多媒体库</li><br></ul><br><h3><a name="t22"></a><a name="t22" target="_blank"></a>网络</h3><br><ul><br><li><a href="http://www.cs.wustl.edu/~schmidt/ACE.html%20target=" target="_blank">ACE</a>：C++面向对象网络变成工具包</li><br><li><a href="http://think-async.com/%20target=" target="_blank">Boost.Asio</a>：用于网络和底层I/O编程的跨平台的C++库</li><br><li><a href="http://casablanca.codeplex.com/%20target=" target="_blank">Casablanca</a>：C++ REST SDK</li><br><li><a href="http://cpp-netlib.org/%20target=" target="_blank">cpp-netlib</a>：高级网络编程的开源库集合</li><br><li><a href="https://github.com/rxi/dyad%20target=" target="_blank">Dyad.c</a>：C语言的异步网络</li><br><li><a href="http://curl.haxx.se/libcurl/%20target=" target="_blank">libcurl</a>&nbsp;:多协议文件传输库</li><br><li><a href="https://github.com/cesanta/mongoose%20target=" target="_blank">Mongoose</a>：非常轻量级的网络服务器</li><br><li><a href="https://github.com/chenshuo/muduo%20target=" target="_blank">Muduo</a>&nbsp;：用于Linux多线程服务器的C++非阻塞网络库</li><br><li><a href="https://github.com/cesanta/net_skeleton%20target=" target="_blank">net_skeleton</a>&nbsp;：C/C++的TCP 客户端/服务器库</li><br><li><a href="https://github.com/riolet/nope.c%20target=" target="_blank">nope.c</a>&nbsp;：基于C语言的超轻型软件平台，用于可扩展的服务器端和网络应用。 对于C编程人员，可以考虑node.js</li><br><li><a href="https://github.com/davidmoreno/onion%20target=" target="_blank">Onion</a>&nbsp;:C语言HTTP服务器库，其设计为轻量级，易使用。</li><br><li><a href="https://github.com/pocoproject%20target=" target="_blank">POCO</a>：用于构建网络和基于互联网应用程序的C++类库，可以运行在桌面，服务器，移动和嵌入式系统。</li><br><li><a href="https://github.com/OculusVR/RakNet%20target=" target="_blank">RakNet</a>：为游戏开发人员提供的跨平台的开源C++网络引擎。</li><br><li><a href="https://github.com/vinipsmaker/tufao%20target=" target="_blank">Tuf o</a>&nbsp;：用于Qt之上的C++构建的异步Web框架。</li><br><li><a href="https://github.com/zaphoyd/websocketpp%20target=" target="_blank">WebSocket++</a>&nbsp;：基于C++/Boost Aiso的websocket 客户端/服务器库</li><br><li><a href="http://zeromq.org/%20target=" target="_blank">ZeroMQ</a>&nbsp;：高速，模块化的异步通信库</li><br></ul><br><h3><a name="t23"></a><a name="t23" target="_blank"></a>物理学</h3><br><p>动力学仿真引擎&nbsp;</p><br><ul><br><li><a href="https://code.google.com/p/box2d/%20target=" target="_blank">Box2D</a>：2D的游戏物理引擎。</li><br><li><a href="https://github.com/bulletphysics/bullet3%20target=" target="_blank">Bullet</a>&nbsp;：3D的游戏物理引擎。</li><br><li><a href="https://github.com/slembcke/Chipmunk2D%20target=" target="_blank">Chipmunk</a>&nbsp;：快速，轻量级的2D游戏物理库</li><br><li><a href="https://github.com/google/liquidfun%20target=" target="_blank">LiquidFun</a>：2D的游戏物理引擎</li><br><li><a href="http://www.ode.org/%20target=" target="_blank">ODE</a>&nbsp;：开放动力学引擎-开源，高性能库，模拟刚体动力学。</li><br><li><a href="https://github.com/vanderlin/ofxBox2d%20target=" target="_blank">ofxBox2d</a>：Box2D开源框架包装器。</li><br><li><a href="https://github.com/simbody/simbody%20target=" target="_blank">Simbody</a>&nbsp;：高性能C++多体动力学/物理库，模拟关节生物力学和机械系统，像车辆，机器人和人体骨骼。</li><br></ul><br><h3><a name="t24"></a><a name="t24" target="_blank"></a>机器人学</h3><br><ul><br><li><a href="http://moos-ivp.org/%20target=" target="_blank">MOOS-IvP</a>&nbsp;：一组开源C++模块，提供机器人平台的自主权，尤其是自主的海洋车辆。</li><br><li><a href="http://www.mrpt.org/%20target=" target="_blank">MRPT</a>：移动机器人编程工具包</li><br><li><a href="https://github.com/PointCloudLibrary/pcl%20target=" target="_blank">PCL</a>&nbsp;：点云库是一个独立的，大规模的开放项目，用于2D/3D图像和点云处理。</li><br><li><a href="http://www.roboticslibrary.org/%20target=" target="_blank">Robotics Library (RL)</a>： 一个独立的C++库，包括机器人动力学，运动规划和控制。</li><br><li><a href="http://www.robwork.dk/jrobwork/%20target=" target="_blank">RobWork</a>：一组C++库的集合，用于机器人系统的仿真和控制。</li><br><li><a href="http://wiki.ros.org/%20target=" target="_blank">ROS</a>&nbsp;：机器人操作系统，提供了一些库和工具帮助软件开发人员创建机器人应用程序。</li><br></ul><br><h3><a name="t25"></a><a name="t25" target="_blank"></a>科学计算</h3><br><ul><br><li><a href="http://www.fftw.org/%20target=" target="_blank">FFTW</a>&nbsp;:用一维或者多维计算DFT的C语言库。</li><br><li><a href="http://www.gnu.org/software/gsl/%20target=" target="_blank">GSL</a>：GNU科学库。</li><br></ul><br><h3><a name="t26"></a><a name="t26" target="_blank"></a>脚本</h3><br><ul><br><li><a href="https://github.com/ChaiScript/ChaiScript/%20target=" target="_blank">ChaiScript</a>&nbsp;：用于C++的易于使用的嵌入式脚本语言。</li><br><li><a href="http://www.lua.org/%20target=" target="_blank">Lua</a>&nbsp;：用于配置文件和基本应用程序脚本的小型快速脚本引擎。</li><br><li><a href="https://github.com/dafrito/luacxx%20target=" target="_blank">luacxx</a>：用于创建Lua绑定的C++ 11 API</li><br><li><a href="http://www.swig.org/%20target=" target="_blank">SWIG</a>&nbsp;：一个可以让你的C++代码链接到JavaScript，Perl，PHP，Python，Tcl和Ruby的包装器/接口生成器</li><br><li><a href="https://github.com/cesanta/v7%20target=" target="_blank">V7</a>：嵌入式的JavaScript 引擎。</li><br><li><a href="http://code.google.com/p/v8/%20target=" target="_blank">V8</a>&nbsp;：谷歌的快速JavaScript引擎，可以被嵌入到任何C++应用程序中。</li><br></ul><br><h3><a name="t27"></a><a name="t27" target="_blank"></a>序列化</h3><br><ul><br><li><a href="http://kentonv.github.io/capnproto/%20target=" target="_blank">Cap’n Proto</a>&nbsp;：快速数据交换格式和RPC系统。</li><br><li><a href="https://github.com/USCiLab/cereal%20target=" target="_blank">cereal</a>&nbsp;：C++11 序列化库</li><br><li><a href="https://github.com/google/flatbuffers%20target=" target="_blank">FlatBuffers</a>&nbsp;：内存高效的序列化库</li><br><li><a href="https://github.com/msgpack/msgpack-c%20target=" target="_blank">MessagePack</a>&nbsp;：C/C++的高效二进制序列化库，例如 JSON</li><br><li><a href="http://code.google.com/p/protobuf/%20target=" target="_blank">protobuf</a>&nbsp;：协议缓冲，谷歌的数据交换格式。</li><br><li><a href="https://github.com/protobuf-c/protobuf-c%20target=" target="_blank">protobuf-c</a>&nbsp;：C语言的协议缓冲实现</li><br><li><a href="https://github.com/real-logic/simple-binary-encoding%20target=" target="_blank">SimpleBinaryEncoding</a>：用于低延迟应用程序的对二进制格式的应用程序信息的编码和解码。</li><br><li><a href="https://thrift.apache.org/%20target=" target="_blank">Thrift</a>&nbsp;：高效的跨语言IPC/RPC，用于C++，Java，Python，PHP，C#和其它多种语言中，最初由Twitter开发。</li><br></ul><br><h3><a name="t28"></a><a name="t28" target="_blank"></a>视频</h3><br><ul><br><li><a href="http://www.webmproject.org/code/%20target=" target="_blank">libvpx</a>&nbsp;：VP8/VP9编码解码SDK</li><br><li><a href="https://www.ffmpeg.org/%20target=" target="_blank">FFmpeg</a>&nbsp;：一个完整的，跨平台的解决方案，用于记录，转换视频和音频流。</li><br><li><a href="https://github.com/strukturag/libde265%20target=" target="_blank">libde265</a>&nbsp;：开放的h.265视频编解码器的实现。</li><br><li><a href="https://github.com/cisco/openh264%20target=" target="_blank">OpenH264</a>：开源H.364 编解码器。</li><br><li><a href="http://www.theora.org/%20target=" target="_blank">Theora</a>&nbsp;：免费开源的视频压缩格式。</li><br></ul><br><h3><a name="t29"></a><a name="t29" target="_blank"></a>虚拟机</h3><br><ul><br><li><a href="https://github.com/tekknolagi/carp%20target=" target="_blank">CarpVM</a>：C中有趣的VM，让我们一起来看看这个。</li><br><li><a href="https://github.com/micropython/micropython%20target=" target="_blank">MicroPython</a>&nbsp;：旨在实现单片机上Python3.x的实现</li><br><li><a href="https://github.com/jakogut/tinyvm%20target=" target="_blank">TinyVM</a>：用纯粹的ANSI C编写的小型，快速，轻量级的虚拟机。</li><br></ul><br><h3><a name="t30"></a><a name="t30" target="_blank"></a>Web应用框架</h3><br><ul><br><li><a href="https://github.com/bel2125/civetweb%20target=" target="_blank">Civetweb</a>&nbsp;：提供易于使用，强大的，C/C++嵌入式Web服务器，带有可选的CGI，SSL和Lua支持。</li><br><li><a href="http://cppcms.com/%20target=" target="_blank">CppCMS</a>&nbsp;：免费高性能的Web开发框架（不是 CMS）.</li><br><li><a href="https://github.com/ipkn/crow%20target=" target="_blank">Crow</a>&nbsp;：一个C++微型web框架（灵感来自于Python Flask）</li><br><li><a href="https://kore.io/%20target=" target="_blank">Kore</a>&nbsp;:使用C语言开发的用于web应用程序的超快速和灵活的web服务器/框架。</li><br><li><a href="http://www.coralbits.com/libonion/%20target=" target="_blank">libOnion</a>：轻量级的库，帮助你使用C编程语言创建web服务器。</li><br><li><a href="https://github.com/jlaine/qdjango/%20target=" target="_blank">QDjango</a>：使用C++编写的，基于Qt库的web框架，试图效仿Django API，因此得此名。</li><br><li><a href="http://www.webtoolkit.eu/wt%20target=" target="_blank">Wt</a>&nbsp;：开发Web应用的C++库。</li><br></ul><br><h3><a name="t31"></a><a name="t31" target="_blank"></a>XML</h3><br><p>XML就是个垃圾，xml的解析很烦人，对于计算机它也是个灾难。这种糟糕的东西完全没有存在的理由了。——Linus Torvalds&nbsp;</p><br><ul><br><li><a href="http://www.libexpat.org/%20target=" target="_blank">Expat</a>&nbsp;：用C语言编写的xml解析库</li><br><li><a href="http://xmlsoft.org/%20target=" target="_blank">Libxml2</a>&nbsp;：Gnome的xml C解析器和工具包</li><br><li><a href="http://libxmlplusplus.sourceforge.net/%20target=" target="_blank">libxml++</a>&nbsp;：C++的xml解析器</li><br><li><a href="http://pugixml.org/%20target=" target="_blank">PugiXML</a>&nbsp;：用于C++的，支持XPath的轻量级，简单快速的XML解析器。</li><br><li><a href="http://rapidxml.sourceforge.net/%20target=" target="_blank">RapidXml</a>&nbsp;：试图创建最快速的XML解析器，同时保持易用性，可移植性和合理的W3C兼容性。</li><br><li><a href="http://sourceforge.net/projects/tinyxml/%20target=" target="_blank">TinyXML</a>&nbsp;：简单小型的C++XML解析器，可以很容易地集成到其它项目中。</li><br><li><a href="https://github.com/leethomason/tinyxml2%20target=" target="_blank">TinyXML2</a>：简单快速的C++CML解析器，可以很容易集成到其它项目中。</li><br><li><a href="https://code.google.com/p/ticpp/%20target=" target="_blank">TinyXML++</a>：TinyXML的一个全新的接口，使用了C++的许多许多优势，模板，异常和更好的异常处理。</li><br><li><a href="http://xerces.apache.org/xerces-c/%20target=" target="_blank">Xerces-C++</a>&nbsp;：用可移植的C++的子集编写的XML验证解析器。</li><br></ul><br><h3><a name="t32"></a><a name="t32" target="_blank"></a>多项混杂</h3><br><div>一些有用的库或者工具，但是不适合上面的分类，或者还没有分类。&nbsp;</div><br><ul><br><li><a href="https://github.com/cppformat/cppformat%20target=" target="_blank">C++ Format</a>&nbsp;：C++的小型，安全和快速格式化库</li><br><li><a href="https://code.google.com/p/casacore/%20target=" target="_blank">casacore</a>&nbsp;：从aips++ 派生的一系列C++核心库</li><br><li><a href="https://github.com/louisdx/cxx-prettyprint%20target=" target="_blank">cxx-prettyprint</a>：用于C++容器的打印库</li><br><li><a href="http://www.dynaforms.com/%20target=" target="_blank">DynaPDF</a>&nbsp;：易于使用的PDF生成库</li><br><li><a href="https://github.com/leafsr/gcc-poison%20target=" target="_blank">gcc-poison</a>&nbsp;：帮助开发人员禁止应用程序中的不安全的C/C++函数的简单的头文件。</li><br><li><a href="http://code.google.com/p/googlemock/%20target=" target="_blank">googlemock</a>：编写和使用C++模拟类的库</li><br><li><a href="https://github.com/joyent/http-parser%20target=" target="_blank">HTTP Parser</a>&nbsp;：C的http请求/响应解析器</li><br><li><a href="https://github.com/anrieff/libcpuid%20target=" target="_blank">libcpuid</a>&nbsp;：用于x86 CPU检测盒特征提取的小型C库</li><br><li><a href="https://github.com/avati/libevil%20target=" target="_blank">libevil</a>&nbsp;：许可证管理器</li><br><li><a href="http://www.libusb.org/%20target=" target="_blank">libusb</a>：允许移动访问USB设备的通用USB库</li><br><li><a href="http://pcre.org/%20target=" target="_blank">PCRE</a>：正则表达式C库，灵感来自于Perl中正则表达式的功能。</li><br><li><a href="http://www.deltavsoft.com/%20target=" target="_blank">Remote Call Framework</a>&nbsp;：C++的进程间通信框架。</li><br><li><a href="http://scintilla.org/%20target=" target="_blank">Scintilla</a>&nbsp;：开源的代码编辑控件</li><br><li><a href="https://github.com/wjwwood/serial%20target=" target="_blank">Serial Communication Library</a>&nbsp;：C++语言编写的跨平台，串口库。</li><br><li><a href="https://github.com/antirez/sds%20target=" target="_blank">SDS</a>：C的简单动态字符串库</li><br><li><a href="https://github.com/cesanta/sldr%20target=" target="_blank">SLDR</a>&nbsp;：超轻的DNS解析器</li><br><li><a href="https://github.com/cesanta/slre%20target=" target="_blank">SLRE</a>： 超轻的正则表达式库</li><br><li><a href="https://github.com/rtv/Stage%20target=" target="_blank">Stage</a>&nbsp;：移动机器人模拟器</li><br><li><a href="https://code.google.com/p/vartypes/%20target=" target="_blank">VarTypes</a>：C++/Qt4功能丰富，面向对象的管理变量的框架。</li><br><li><a href="http://zbar.sourceforge.net/%20target=" target="_blank">ZBar</a>：‘条形码扫描器’库，可以扫描照片，图片和视频流中的条形码，并返回结果。</li><br><li><a href="https://github.com/VerbalExpressions/CppVerbalExpressions%20target=" target="_blank">CppVerbalExpressions</a>&nbsp;：易于使用的C++正则表达式</li><br><li><a href="https://github.com/VerbalExpressions/QtVerbalExpressions%20target=" target="_blank">QtVerbalExpressions</a>：基于C++ VerbalExpressions 库的Qt库</li><br><li><a href="https://github.com/CopernicaMarketingSoftware/PHP-CPP%20target=" target="_blank">PHP-CPP</a>：使用C++来构建PHP扩展的库</li><br><li><a href="http://bstring.sourceforge.net/%20target=" target="_blank">Better String</a>&nbsp;：C的另一个字符串库，功能更丰富，但是没有缓冲溢出问题，还包含了一个C++包装器。</li><br></ul><br><h3><a name="t33"></a><a name="t33" target="_blank"></a>软件</h3><br><div>用于创建开发环境的软件&nbsp;</div><br><h3><a name="t34"></a><a name="t34" target="_blank"></a>编译器</h3><br><ul><br><li><a href="http://clang.llvm.org/%20target=" target="_blank">Clang</a>&nbsp;:由苹果公司开发的</li><br><li><a href="https://gcc.gnu.org/%20target=" target="_blank">GCC</a>：GNU编译器集合</li><br><li><a href="https://software.intel.com/en-us/c-compilers%20target=" target="_blank">Intel C++ Compiler</a>&nbsp;：由英特尔公司开发</li><br><li><a href="http://llvm.org/%20target=" target="_blank">LLVM</a>&nbsp;：模块化和可重用编译器和工具链技术的集合</li><br><li><a href="http://msdn.microsoft.com/en-us/vstudio/hh386302.aspx%20target=" target="_blank">Microsoft Visual C++</a>&nbsp;：MSVC，由微软公司开发</li><br><li><a href="http://www.openwatcom.org/index.php/Main_Page%20target=" target="_blank">Open WatCom</a>&nbsp;：Watcom，C，C++和Fortran交叉编译器和工具</li><br><li><a href="http://bellard.org/tcc/%20target=" target="_blank">TCC</a>&nbsp;：轻量级的C语言编译器</li><br></ul><br><h3><a name="t35"></a><a name="t35" target="_blank"></a>在线编译器</h3><br><ul><br><li><a href="http://codepad.org/%20target=" target="_blank">codepad</a>&nbsp;：在线编译器/解释器，一个简单的协作工具</li><br><li><a href="http://codetwist.com/%20target=" target="_blank">CodeTwist</a>：一个简单的在线编译器/解释器，你可以粘贴的C,C++或者Java代码，在线执行并查看结果</li><br><li><a href="http://coliru.stacked-crooked.com/%20target=" target="_blank">coliru</a>&nbsp;：在线编译器/shell， 支持各种C++编译器</li><br><li><a href="http://gcc.godbolt.org/%20target=" target="_blank">Compiler Explorer</a>：交互式编译器，可以进行汇编输出</li><br><li><a href="http://www.compileonline.com/compile_cpp11_online.php%20target=" target="_blank">CompileOnline</a>：Linux上在线编译和执行C++程序</li><br><li><a href="http://ideone.com/%20target=" target="_blank">Ideone</a>&nbsp;：一个在线编译器和调试工具，允许你在线编译源代码并执行，支持60多种编程语言。</li><br></ul><br><h3><a name="t36"></a><a name="t36" target="_blank"></a>调试器</h3><br><ul><br><li><a href="http://en.wikipedia.org/wiki/Comparison_of_debuggers%20target=" target="_blank">Comparison of debuggers</a>&nbsp;：来自维基百科的调试器列表</li><br><li><a href="https://www.gnu.org/software/gdb%20target=" target="_blank">GDB</a>&nbsp;：GNU调试器</li><br><li><a href="http://valgrind.org/%20target=" target="_blank">Valgrind</a>：内存调试，内存泄露检测，性能分析工具。</li><br></ul><br><h3><a name="t37"></a><a name="t37" target="_blank"></a>集成开发环境（IDE）</h3><br><ul><br><li><a href="http://www.jetbrains.com/objc/%20target=" target="_blank">AppCode</a>&nbsp;：构建与JetBrains’ IntelliJ IDEA 平台上的用于Objective-C，C,C++，Java和Java开发的集成开发环境</li><br><li><a href="http://www.jetbrains.com/clion/%20target=" target="_blank">CLion</a>：来自JetBrains的跨平台的C/C++的集成开发环境</li><br><li><a href="http://www.codeblocks.org/%20target=" target="_blank">Code::Blocks</a>&nbsp;：免费C，C++和Fortran的集成开发环境</li><br><li><a href="http://codelite.org/%20target=" target="_blank">CodeLite</a>&nbsp;：另一个跨平台的免费的C/C++集成开发环境</li><br><li><a href="http://sourceforge.net/projects/orwelldevcpp/%20target=" target="_blank">Dev-C++</a>：可移植的C/C++/C++11集成开发环境</li><br><li><a href="http://www.eclipse.org/cdt/%20target=" target="_blank">Eclipse CDT</a>：基于Eclipse平台的功能齐全的C和C++集成开发环境</li><br><li><a href="http://www.geany.org/%20target=" target="_blank">Geany</a>&nbsp;：轻量级的快速，跨平台的集成开发环境。</li><br><li><a href="http://www-03.ibm.com/software/products/en/visgen%20target=" target="_blank">IBM VisualAge</a>&nbsp;：来自IBM的家庭计算机集成开发环境。</li><br><li><a href="https://github.com/Sarcasm/irony-mode%20target=" target="_blank">Irony-mode</a>：由libclang驱动的用于Emacs的C/C++微模式</li><br><li><a href="https://www.kdevelop.org/%20target=" target="_blank">KDevelop</a>：免费开源集成开发环境</li><br><li><a href="http://www.visualstudio.com/%20target=" target="_blank">Microsoft Visual Studio</a>&nbsp;：来自微软的集成开发环境</li><br><li><a href="https://netbeans.org/%20target=" target="_blank">NetBeans</a>&nbsp;：主要用于Java开发的的集成开发环境，也支持其他语言，尤其是PHP，C/C++和HTML5。</li><br><li><a href="http://qt-project.org/%20target=" target="_blank">Qt Creator</a>：跨平台的C++，Javascript和QML集成开发环境，也是Qt SDK的一部分。</li><br><li><a href="https://github.com/Andersbakken/rtags%20target=" target="_blank">rtags</a>：C/C++的客户端服务器索引，用于 跟基于clang的emacs的集成</li><br><li><a href="https://developer.apple.com/xcode/%20target=" target="_blank">Xcode</a>&nbsp;：由苹果公司开发</li><br><li><a href="https://valloric.github.io/YouCompleteMe/%20target=" target="_blank">YouCompleteMe</a>：一个用于Vim的根据你敲的代码快速模糊搜索并进行代码补全的引擎。</li><br></ul><br><h3><a name="t38"></a><a name="t38" target="_blank"></a>构建系统</h3><br><ul><br><li><a href="https://github.com/rizsotto/Bear%20target=" target="_blank">Bear</a>&nbsp;：用于为clang工具生成编译数据库的工具</li><br><li><a href="https://www.biicode.com/%20target=" target="_blank">Biicode</a>：基于文件的简单依赖管理器。</li><br><li><a href="http://www.cmake.org/%20target=" target="_blank">CMake</a>&nbsp;：跨平台的免费开源软件用于管理软件使用独立编译的方法进行构建的过程。</li><br><li><a href="https://github.com/iauns/cpm%20target=" target="_blank">CPM</a>：基于CMake和Git的C++包管理器</li><br><li><a href="http://www.fastbuild.org/docs/home.html%20target=" target="_blank">FASTBuild</a>：高性能，开源的构建系统，支持高度可扩展性的编译，缓冲和网络分布。</li><br><li><a href="http://martine.github.io/ninja/%20target=" target="_blank">Ninja</a>&nbsp;：专注于速度的小型构建系统</li><br><li><a href="http://www.scons.org/%20target=" target="_blank">Scons</a>&nbsp;：使用Python scipt 配置的软件构建工具</li><br><li><a href="https://github.com/deplinenoise/tundra%20target=" target="_blank">tundra</a>&nbsp;：高性能的代码构建系统，甚至对于非常大型的软件项目，也能提供最好的增量构建次数。</li><br><li><a href="http://gittup.org/tup/%20target=" target="_blank">tup</a>：基于文件的构建系统，用于后台监控变化的文件。</li><br></ul><br><h3><a name="t39"></a><a name="t39" target="_blank"></a>静态代码分析</h3><br><ul><br><li><a href="http://cppcheck.sourceforge.net/%20target=" target="_blank">Cppcheck</a>&nbsp;：静态C/C++代码分析工具</li><br><li><a href="https://code.google.com/p/include-what-you-use/%20target=" target="_blank">include-what-you-use</a>&nbsp;：使用clang进行代码分析的工具，可以#include在C和C++文件中。</li><br><li><a href="http://oclint.org/%20target=" target="_blank">OCLint</a>&nbsp;：用于C，C++和Objective-C的静态源代码分析工具，用于提高质量，减少瑕疵。</li><br><li><a href="http://clang-analyzer.llvm.org/index.html%20target=" target="_blank">Clang Static Analyzer</a>：查找C，C++和Objective-C程序bug的源代码分析工具</li><br><li><a href="http://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis#C.2FC.2B.2B target=" target="_blank">List of tools for static code analysis</a>&nbsp;：来自维基百科的静态代码分析工具列表</li><br></ul>
+
+<p>转自<a href="http://blog.csdn.net/small_qch/article/details/40544641" target="_blank" rel="external">http://blog.csdn.net/small_qch/article/details/40544641</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/posts/OpenSource/开源库大全/">开源库大全</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Mark</a></p>
+        <p><span>发布时间:</span>2016-08-17, 09:58:14</p>
+        <p><span>最后更新:</span>2016-08-18, 11:32:42</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/posts/OpenSource/开源库大全/" title="开源库大全">http://markma.tk/posts/OpenSource/开源库大全/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://markma.tk/posts/OpenSource/开源库大全/　　作者: Mark" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/posts/OpenSource/cpp机器人库robot-library/">
+                    cpp机器人库robot-library
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/posts/Python/Python-入门学习（二）/">
+                    Python-入门学习（二）
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3D图形引擎"><span class="toc-number">1.</span> <span class="toc-text">3D图形引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开源CAD"><span class="toc-number">2.</span> <span class="toc-text">开源CAD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML"><span class="toc-number">3.</span> <span class="toc-text">XML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图形语言工具"><span class="toc-number">4.</span> <span class="toc-text">图形语言工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#界面工具"><span class="toc-number">5.</span> <span class="toc-text">界面工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装包制作工具"><span class="toc-number">6.</span> <span class="toc-text">安装包制作工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片处理"><span class="toc-number">7.</span> <span class="toc-text">图片处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#值得学习的C语言开源项目"><span class="toc-number">8.</span> <span class="toc-text">值得学习的C语言开源项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-开源库大全"><span class="toc-number">9.</span> <span class="toc-text">C++开源库大全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.1.</span> <span class="toc-text">标准库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.2.</span> <span class="toc-text">框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.3.</span> <span class="toc-text">人工智能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.4.</span> <span class="toc-text">异步事件循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.5.</span> <span class="toc-text">音频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.6.</span> <span class="toc-text">生态学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.7.</span> <span class="toc-text">压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.8.</span> <span class="toc-text">并发性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.9.</span> <span class="toc-text">容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.10.</span> <span class="toc-text">密码学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.11.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.12.</span> <span class="toc-text">调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.13.</span> <span class="toc-text">游戏引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.14.</span> <span class="toc-text">图形用户界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.15.</span> <span class="toc-text">图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.16.</span> <span class="toc-text">图像处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.17.</span> <span class="toc-text">国际化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.18.</span> <span class="toc-text">Jason</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.19.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.20.</span> <span class="toc-text">机器学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.21.</span> <span class="toc-text">数学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.22.</span> <span class="toc-text">多媒体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.23.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.24.</span> <span class="toc-text">物理学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.25.</span> <span class="toc-text">机器人学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.26.</span> <span class="toc-text">科学计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.27.</span> <span class="toc-text">脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.28.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.29.</span> <span class="toc-text">视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.30.</span> <span class="toc-text">虚拟机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.31.</span> <span class="toc-text">Web应用框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.32.</span> <span class="toc-text">XML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.33.</span> <span class="toc-text">多项混杂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.34.</span> <span class="toc-text">软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.35.</span> <span class="toc-text">编译器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.36.</span> <span class="toc-text">在线编译器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.37.</span> <span class="toc-text">调试器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.38.</span> <span class="toc-text">集成开发环境（IDE）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.39.</span> <span class="toc-text">构建系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">9.40.</span> <span class="toc-text">静态代码分析</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"开源库大全　| Mark's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="posts/OpenSource/开源库大全/" data-title="开源库大全" data-url="http://markma.tk/posts/OpenSource/开源库大全/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"markma"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/posts/OpenSource/cpp机器人库robot-library/" title="上一篇: cpp机器人库robot-library">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/posts/Python/Python-入门学习（二）/" title="下一篇: Python-入门学习（二）">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/Qt串口开发QextserialPort/">Qt串口开发QextserialPort</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/QtStudy/Qt常见错误汇总/">Qt 常见错误汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/Qt绘图库QCustomplot/">Qt绘图库 QCustomPlot</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/cpp机器人库robot-library/">cpp机器人库robot-library</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/开源库大全/">开源库大全</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Python/Python-入门学习（二）/">Python-入门学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Python/Python-入门学习（一）/">Python-入门学习（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/QtStudy/Qt中界面类名的修改/">Qt ui界面调用</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Hexo/HEXO-Github-快速搭建属于自己的博客/">HEXO+Github Create your Blog</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Journal/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Mark
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 27;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
