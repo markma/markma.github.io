@@ -15,18 +15,16 @@
 
 
 
-<meta name="description" content="转自《HEXO+Github,搭建属于自己的博客》">
+<meta name="description" content="Qt 中pro文件涉及到对项目的一些配置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO+Github Create your Blog">
-<meta property="og:url" content="http://markma.tk/posts/Hexo/HEXO-Github-快速搭建属于自己的博客/index.html">
+<meta property="og:title" content="Qt pro文件写法">
+<meta property="og:url" content="http://markma.tk/posts/QtStudy/Qt中pro文件写法/index.html">
 <meta property="og:site_name" content="Mark's Blog">
-<meta property="og:description" content="转自《HEXO+Github,搭建属于自己的博客》">
-<meta property="og:image" content="https://source.unsplash.com/random">
-<meta property="og:updated_time" content="2016-08-17T01:48:59.157Z">
+<meta property="og:description" content="Qt 中pro文件涉及到对项目的一些配置">
+<meta property="og:updated_time" content="2017-04-19T11:57:55.823Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HEXO+Github Create your Blog">
-<meta name="twitter:description" content="转自《HEXO+Github,搭建属于自己的博客》">
-<meta name="twitter:image" content="https://source.unsplash.com/random">
+<meta name="twitter:title" content="Qt pro文件写法">
+<meta name="twitter:description" content="Qt 中pro文件涉及到对项目的一些配置">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>HEXO+Github Create your Blog | Mark&#39;s Blog</title>
+<title>Qt pro文件写法 | Mark&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -295,11 +293,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-posts/Hexo/HEXO-Github-快速搭建属于自己的博客" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-posts/QtStudy/Qt中pro文件写法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/posts/Hexo/HEXO-Github-快速搭建属于自己的博客/" class="article-date">
-      <time datetime="2016-08-07T07:05:11.000Z" itemprop="datePublished">2016-08-07</time>
+      <a href="/posts/QtStudy/Qt中pro文件写法/" class="article-date">
+      <time datetime="2017-04-19T11:29:00.000Z" itemprop="datePublished">2017-04-19</time>
 </a>
 
 
@@ -314,7 +312,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HEXO+Github Create your Blog
+      Qt pro文件写法
     </h1>
   
 
@@ -323,13 +321,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+    <a class="article-category-link" href="/categories/QtStudy/">QtStudy</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -340,119 +338,147 @@
       
           
         <blockquote>
-<p>转自<a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">《HEXO+Github,搭建属于自己的博客》</a><br><a id="more"></a></p>
+<p>Qt 中pro文件涉及到对项目的一些配置<br><a id="more"></a></p>
 </blockquote>
-<h2 id="HEXO-Github-搭建属于自己的博客"><a href="#HEXO-Github-搭建属于自己的博客" class="headerlink" title="HEXO+Github,搭建属于自己的博客"></a>HEXO+Github,搭建属于自己的博客</h2><p>hexo是一款基于Node.js的静态博客框架,hexo github链接,这篇教程是针对与Mac的，参考链接，由于原文讲到的hexo是以前的老版本，所以现在的版本配置的时候会有些改动。</p>
-<p>之前是想着写博客，一方面是给自己做笔记，可以提升自己的写作、总结能力，一个技术点我们会使用，并不难，但是要做到让让别人也能听懂我们讲得，还是需要一定的技巧和经验的。很多类似于CSDN、博客园也都可以写文章，但是页面的样式我，不是太喜欢，简书还算好点得。最近看到一些大神们的博客,貌似都是用hexo写得,我也依葫芦画瓢的搭建了一个。不罗嗦了，直接上搭建步骤。</p>
-<h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p>安装Node（必须）</p>
-<p>作用：用来生成静态页面的</p>
-<p>到Node.js官网下载相应平台的最新版本，一路安装即可。</p>
-<p>安装Git（必须）</p>
-<p>作用：把本地的hexo内容提交到github上去.</p>
-<p>安装Xcode就自带有Git，我就不多说了。</p>
-<p>申请GitHub（必须）</p>
-<p>作用：是用来做博客的远程创库、域名、服务器之类的，怎么与本地hexo建立连接等下讲。</p>
-<p>github账号我也不再啰嗦了,没有的话直接申请就行了，跟一般的注册账号差不多，SSH Keys，看你自己了，可以不配制，不配置的话以后每次对自己的博客有改动提交的时候就要手动输入账号密码，配置了就不需要了，怎么配置我就不多说了，网上有很多教程。</p>
-<p>正式安装Hexo<br>Node和Git都安装好后,首先创建一个文件夹,如blog,用户存放hexo的配置文件,然后进入blog里安装Hexo。</p>
-<p>执行如下命令安装Hexo：</p>
-<pre><code>sudo npm install -g hexo
-</code></pre><p>初始化然后，执行init命令初始化hexo,命令：</p>
-<pre><code>hexo init
-</code></pre><p>好啦，至此，全部安装工作已经完成！blog就是你的博客根目录，所有的操作都在里面进行。</p>
-<p>生成静态页面</p>
-<pre><code>hexo generate（hexo g也可以）
-</code></pre><p>本地启动</p>
-<p>启动本地服务，进行文章预览调试，命令：</p>
-<pre><code>hexo server
-</code></pre><p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
-<h3 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h3><p>建立Repository</p>
-<p>建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】，固定写法</p>
-<p>然后建立关联，我的blog在本地/Users/leopard/blog，blog是我之前建的东西也全在这里面，有：</p>
-<hr>
-<pre><code>_config.yml    node_modules    public      source
-
-db.json        package.json    scaffolds  themes
-</code></pre><hr>
-<p>现在我们需要_config.yml文件，来建立关联，命令：</p>
-<pre><code>vim _config.yml
-</code></pre><p>翻到最下面，改成我这样子的</p>
-<pre><code>deploy:
-
-     type: git
-
-     repo: https://github.com/leopardpan/leopardpan.github.io.git
-
-     branch: master
-</code></pre><p>然后执行命令：</p>
-<pre><code>npm install hexo-deployer-git --save
-</code></pre><p>网上会有很多说法，有的type是github, 还有repository最后面的后缀也不一样，是github.com.git，我也踩了很多坑，我现在的版本是hexo: 3.1.1，执行命令hexo -vsersion就出来了,貌似3.0后全部改成我上面这种格式了。</p>
-<p>忘了说了，我没用SSH Keys如果你用了SSH Keys的话直接在github里复制SSH的就行了，总共就两种协议，相信你懂的。</p>
-<p>然后，执行配置命令：</p>
-<pre><code>hexo deploy
-</code></pre><p>然后再浏览器中输入<a href="https://username.github.io/" target="_blank" rel="external">https://username.github.io/</a>    就行了，我的github的账户叫markma,把这个改成你github的账户名就行了</p>
-<h3 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h3><p>每次部署的步骤，可按以下三步来进行。</p>
-<pre><code>hexo clean
-
-hexo generate
-
-hexo deploy
-</code></pre><h3 id="一些常用命令："><a href="#一些常用命令：" class="headerlink" title="一些常用命令："></a>一些常用命令：</h3><pre><code>hexo new&quot;postName&quot; #新建文章
-
-hexo new page&quot;pageName&quot; #新建页面
-
-hexo generate #生成静态页面至public目录
-
-hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
-
-hexo deploy #将.deploy目录部署到GitHub
-
-hexo help # 查看帮助
-
-hexo version #查看Hexo的版本
-</code></pre><h3 id="报错总结"><a href="#报错总结" class="headerlink" title="报错总结"></a>报错总结</h3><h4 id="ERROR-Deployer-not-found-git-或者-ERROR-Deployer-not-found-github"><a href="#ERROR-Deployer-not-found-git-或者-ERROR-Deployer-not-found-github" class="headerlink" title="ERROR Deployer not found: git 或者 ERROR Deployer not found: github"></a>ERROR Deployer not found: git 或者 ERROR Deployer not found: github</h4><p>解决方法： <code>npm install hexo-deployer-git --save</code></p>
-<h4 id="ERROR-Process-failed-layout-DS-Store-那么进入主题里面layout和-partial目录下，使用删除命令："><a href="#ERROR-Process-failed-layout-DS-Store-那么进入主题里面layout和-partial目录下，使用删除命令：" class="headerlink" title="ERROR Process failed: layout/.DS_Store , 那么进入主题里面layout和_partial目录下，使用删除命令："></a>ERROR Process failed: layout/.DS_Store , 那么进入主题里面layout和_partial目录下，使用删除命令：</h4><pre><code>rm-rf.DS_Store
-</code></pre><h4 id="ERROR-Plugin-load-failed-hexo-server"><a href="#ERROR-Plugin-load-failed-hexo-server" class="headerlink" title="ERROR Plugin load failed: hexo-server"></a>ERROR Plugin load failed: hexo-server</h4><p>原因：</p>
-<p>Besides,utilities are separated into a standalone module.hexo.util is not reachable anymore.</p>
-<p>解决方法，执行命令：</p>
-<pre><code>sudo npm install hexo-server
-</code></pre><h4 id="执行命令hexo-server，提示：Usage-hexo-…"><a href="#执行命令hexo-server，提示：Usage-hexo-…" class="headerlink" title="执行命令hexo server，提示：Usage: hexo …."></a>执行命令hexo server，提示：Usage: hexo ….</h4><p>原因：</p>
-<p>我认为是没有生成本地服务</p>
-<p>解决方法，执行命令：</p>
-<pre><code>npm install hexo-server --save
-</code></pre><h4 id="提示：hexo-server-0-1-2-node-modules-hexo-server"><a href="#提示：hexo-server-0-1-2-node-modules-hexo-server" class="headerlink" title="提示：hexo-server@0.1.2 node_modules/hexo-server"></a>提示：hexo-server@0.1.2 node_modules/hexo-server</h4><p>….</p>
-<p>这个时候再执行：</p>
-<p>hexo-server</p>
-<p>得到:</p>
-<pre><code>INFOHexo is running at http://0.0.0.0:4000/.PressCtrl+C to stop.
-</code></pre><p>表示成功了</p>
-<p>这个时候再点击 <a href="http://0.0.0.0:4000" target="_blank" rel="external">http://0.0.0.0:4000</a>    ，正常情况下应该是最原始的画面，但是我看到的是：</p>
-<h4 id="白板和Cannot-GET-几个字"><a href="#白板和Cannot-GET-几个字" class="headerlink" title="白板和Cannot GET / 几个字"></a>白板和Cannot GET / 几个字</h4><p>原因：</p>
-<p>由于2.6以后就更新了，我们需要手动配置些东西，我们需要输入下面三行命令：</p>
-<pre><code>npm install hexo-renderer-ejs --save
-
-npm install hexo-renderer-stylus --save
-
-npm install hexo-renderer-marked --save
-</code></pre><p>这个时候再重新生成静态文件，命令：</p>
-<pre><code>hexo generate（或hexo g）
-</code></pre><p>启动本地服务器：</p>
-<pre><code>hexo server（或hexo s）
-</code></pre><p>再，点击网址<a href="http://0.0.0.0:4000" target="_blank" rel="external">http://0.0.0.0:4000</a>    OK终于可以看到属于你自己的blog啦，😄，虽然很简陋，但好歹有了一个属于自己的小窝了。参考链接，本地已经简单的设置好了，但是现在域名和服务器都是基于自己的电脑，接下来需要跟github进行关联。</p>
-<h3 id="主题推荐"><a href="#主题推荐" class="headerlink" title="主题推荐"></a>主题推荐</h3><p>这里有大量的主题列表使用方法里面</p>
-<p>都有详细的介绍，我就不多说了。</p>
-<p>我这里有几款个人认为不错的主题，免去你们，一个一个的选了，欢迎吐槽我的审美，😄</p>
-<p><a href="https://github.com/someus/huno" target="_blank" rel="external">huno</a>：是为Hexo编写的一个响应式的主题，该主题基于Uno。</p>
-<p><a href="https://github.com/stiekel/hexo-theme-random" target="_blank" rel="external">random</a>：A hexo theme with random fullscreen background image</p>
-<p><a href="https://github.com/markma/hexo-themes-cover" target="_blank" rel="external">Cover</a>- A chic theme with facebook-like cover photo</p>
-<p><a href="https://github.com/henryhuang/oishi" target="_blank" rel="external">Oishi</a>- A white theme based on Landscape plus and Writing.</p>
-<p><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">Yilia</a>- Responsive and simple style 优雅简洁响应式主题，我用得就是这个。</p>
-<h4 id="修改头像"><a href="#修改头像" class="headerlink" title="修改头像"></a>修改头像</h4><p>我当前的路径/Users/leopard/blog/themes/yilia，ls 你可以看到</p>
-<hr>
-<p>Gruntfile.js    _config.yml     package.json</p>
-<p>README.md        layout              source</p>
-<hr>
-<p>vim _config.yml 进去，找到 #你的头像url avatar: 后接一个URL就行了，头像就修改成功了</p>
-<h4 id="附送随机设置背景网站unsplash"><a href="#附送随机设置背景网站unsplash" class="headerlink" title="附送随机设置背景网站unsplash"></a>附送随机设置背景网站<a href="https://source.unsplash.com/" target="_blank" rel="external">unsplash</a></h4><p>效果如下图：<img src="https://source.unsplash.com/random" alt="此图随机生成"></p>
+<h1 id="语法简介"><a href="#语法简介" class="headerlink" title="语法简介"></a>语法简介</h1><h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><p>到目前为止，你已经看到在项目文件中使用的=操作符和+=操作符。这里能够提供更多的可供使用的操作符，但是其中的一些需要谨慎地使用，因为它们也许会比你期待的改变的更多。</p>
+<h3 id="“-”操作符"><a href="#“-”操作符" class="headerlink" title="“=”操作符"></a>“=”操作符</h3><p>这个操作符简单分配一个值给一个变量。使用方法如下：</p>
+<pre><code>TARGET = myapp
+</code></pre><p>这将会设置TARGET变量为myapp。这将会删除原来对TARGET的任何设置。</p>
+<h3 id="“-”操作符-1"><a href="#“-”操作符-1" class="headerlink" title="“+=”操作符"></a>“+=”操作符</h3><p>这个操作符将会向一个变量的值的列表中添加一个值。使用方法如下：</p>
+<pre><code>DEFINES += QT_DLL
+</code></pre><p>这将会把QT_DLL添加到被放到makefile中的预处理定义的列表中。</p>
+<h3 id="“-”操作符-2"><a href="#“-”操作符-2" class="headerlink" title="“-=”操作符"></a>“-=”操作符</h3><p>这个操作符将会从一个变量的值的列表中移去一个值。使用方法如下：</p>
+<pre><code>DEFINES -= QT_DLL
+</code></pre><p>这将会从被放到makefile中的预处理定义的列表中移去QT_DLL。</p>
+<h3 id="“-”操作符-3"><a href="#“-”操作符-3" class="headerlink" title="“*=”操作符"></a>“*=”操作符</h3><p>这个操作符仅仅在一个值不存在于一个变量的值的列表中的时候，把它添加进去。使用方法如下：</p>
+<pre><code>DEFINES *= QT_DLL
+</code></pre><p>只用在QT_DLL没有被定义在预处理定义的列表中时，它才会被添加进去。</p>
+<h3 id="“-”操作符-4"><a href="#“-”操作符-4" class="headerlink" title="“~=”操作符"></a>“~=”操作符</h3><p>这个操作符将会替换任何与指定的值的正则表达式匹配的任何值。使用方法如下：</p>
+<pre><code>DEFINES ~= s/QT_[DT].+/QT
+</code></pre><p>这将会用QT来替代任何以QT_D或QT_T开头的变量中的QT_D或QT_T。</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域和“if”语句很相似，如果某个条件为真，作用域中的设置就会被处理。作用域使用方法如下：</p>
+<pre><code>win32 {
+    DEFINES += QT_DLL
+}
+</code></pre><p>上面的代码的作用是，如果在Windows平台上使用qmake，QT_DLL定义就会被添加到makefile中。如果在Windows平台以外的平台上使用qmake，这个定义就会被忽略。你也可以使用qmake执行一个单行的条件/任务，就像这样：</p>
+<pre><code>win32:DEFINES += QT_DLL
+</code></pre><p>比如，假设我们想在除了Windows平台意外的所有平台处理些什么。我们想这样使用作用域来达到这种否定效果：</p>
+<pre><code>!win32 {
+    DEFINES += QT_DLL
+}
+</code></pre><p>CONFIG行中的任何条目也都是一个作用域。比如，你这样写：</p>
+<pre><code>CONFIG += warn_on
+</code></pre><p>你将会得到一个称作“warn_on”的作用域。这样将会使在不丢失特定条件下可能所需的所有自定义设置的条件下，很容易地修改项目中的配置。因为你可能把你自己的值放到CONFIG行中，这将会为你的makefile而提供给你一个非常强大的配置工具。比如：</p>
+<pre><code>CONFIG += qt warn_on debug
+debug {
+    TARGET = myappdebug
+}
+release {
+    TARGET = myapp
+}
+</code></pre><p>在上面的代码中，两个作用域被创建，它们依赖于CONFIG行中设置的是什么。在这个例子中，debug在CONFIG行中，所以TARGET变量被设置为myappdebug。如果release在CONFIG行中，那么TARGET变量将会被设置为myapp。</p>
+<p>当然也可以在处理一些设置之前检查两个事物。例如，如果你想检查平台是否是Windows并且线程设置是否被设定，你可以这样写：</p>
+<pre><code>win32 {
+    thread {
+        DEFINES += QT_THREAD_SUPPORT
+    }
+}
+</code></pre><p>为了避免写出许多嵌套作用域，你可以这样使用冒号来嵌套作用域：</p>
+<pre><code>win32:thread {
+    DEFINES += QT_THREAD_SUPPORT
+}
+</code></pre><p>一旦一个测试被执行，你也许也要做else/elseif操作。这种情况下，你可以很容易地写出复杂的测试。这需要使用特殊的“else”作用域，它可以和其它作用域进行组合（也可以向上面一样使用冒号），比如：</p>
+<pre><code>win32:thread {
+    DEFINES += QT_THREAD_SUPPORT
+} else:debug {
+    DEFINES += QT_NOTHREAD_DEBUG
+} else {
+    warning(&quot;Unknown configuration&quot;)
+}
+</code></pre><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>到目前为止我们遇到的变量都是系统变量，比如DEFINES、SOURCES和HEADERS。你也可以为你自己创建自己的变量，这样你就可以在作用域中使用它们了。创建自己的变量很容易，只要命名它并且分配一些东西给它。比如：</p>
+<pre><code>MY_VARIABLE = value
+</code></pre><p>现在你对你自己的变量做什么是没有限制的，同样地，qmake将会忽略它们，除非需要在一个作用域中考虑它们。</p>
+<p>你也可以通过在其它任何一个变量的变量名前加$$来把这个变量的值分配给当前的变量。例如：</p>
+<pre><code>MY_DEFINES = $$DEFINES
+</code></pre><p>现在MY_DEFINES变量包含了项目文件在这点时DEFINES变量的值。这也和下面的语句一样：</p>
+<pre><code>MY_DEFINES = $${DEFINES}
+</code></pre><p>第二种方法允许你把一个变量和其它变量连接起来，而不用使用空格。qmake将允许一个变量包含任何东西（包括<code>$(VALUE)</code>，可以直接在makefile中直接放置，并且允许它适当地扩张，通常是一个环境变量）。无论如何，如果你需要立即设置一个环境变量，然后你就可以使用<code>$$()</code>方法。比如：</p>
+<pre><code>MY_DEFINES = $$(ENV_DEFINES)
+</code></pre><p>这将会设置MY_DEFINES为环境变量ENV_DEFINES传递给.pro文件地值。另外你可以在替换的变量里调用内置函数。这些函数（不会和下一节中列举的测试函数混淆）列出如下：</p>
+<h2 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h2><p>join( variablename, glue, before, after )</p>
+<p>这将会在variablename的各个值中间加入glue。如果这个变量的值为非空，那么就会在值的前面加一个前缀before和一个后缀after。只有variablename是必须的字段，其它默认情况下为空串。如果你需要在glue、before或者after中使用空格的话，你必须提供它们。</p>
+<p>member( variablename, position )</p>
+<p>这将会放置variablename的列表中的position位置的值。如果variablename不够长，这将会返回一个空串。variablename是唯一必须的字段，如果没有指定位置，则默认为列表中的第一个值。</p>
+<p>find( variablename, substr )</p>
+<p>这将会放置variablename中所有匹配substr的值。substr也可以是正则表达式，而因此将被匹配。</p>
+<pre><code>MY_VAR = one two three four
+MY_VAR2 = $$join(MY_VAR, &quot; -L&quot;, -L) -Lfive
+MY_VAR3 = $$member(MY_VAR, 2) $$find(MY_VAR, t.*)
+</code></pre><p>MY_VAR2将会包含“-Lone -Ltwo -Lthree -Lfour -Lfive”，并且MYVAR3将会包含“three two three”。</p>
+<p>system( program_and_args )</p>
+<p>这将会返回程序执行在标准输出/标准错误输出的内容，并且正像平时所期待地分析它。比如你可以使用这个来询问有关平台的信息。</p>
+<pre><code>UNAME = $$system(uname -s)
+contains( UNAME, [lL]inux ):message( This looks like Linux ($$UNAME) to me )
+</code></pre><h2 id="测试函数"><a href="#测试函数" class="headerlink" title="测试函数"></a>测试函数</h2><p>qmake提供了可以简单执行，但强大测试的内置函数。这些测试也可以用在作用域中（就像上面一样），在一些情况下，忽略它的测试值，它自己使用测试函数是很有用的。</p>
+<p>contains( variablename, value )</p>
+<p>如果value存在于一个被叫做variablename的变量的值的列表中，那么这个作用域中的设置将会被处理。例如：</p>
+<pre><code>contains( CONFIG, thread ) {
+    DEFINES += QT_THREAD_SUPPORT
+}
+</code></pre><p>如果thread存在于CONFIG变量的值的列表中时，那么QT_THREAD_SUPPORT将会被加入到DEFINES变量的值的列表中。</p>
+<p>count( variablename, number )</p>
+<p>如果number与一个被叫做variablename的变量的值的数量一致，那么这个作用域中的设置将会被处理。例如：</p>
+<pre><code>count( DEFINES, 5 ) {
+    CONFIG += debug
+}
+</code></pre><p>error( string )</p>
+<p>这个函数输出所给定的字符串，然后会使qmake退出。例如：</p>
+<pre><code>error( &quot;An error has occured&quot; )
+</code></pre><p>文本“An error has occured”将会被显示在控制台上并且qmake将会退出。</p>
+<p>exists( filename )</p>
+<p>如果指定文件存在，那么这个作用域中的设置将会被处理。例如：</p>
+<pre><code>exists( /local/qt/qmake/main.cpp ) {
+    SOURCES += main.cpp
+}
+</code></pre><p>如果/local/qt/qmake/main.cpp存在，那么main.cpp将会被添加到源文件列表中。</p>
+<p>注意可以不用考虑平台使用“/”作为目录的分隔符。</p>
+<p>include( filename )</p>
+<p>项目文件在这一点时包含这个文件名的内容，所以指定文件中的任何设置都将会被处理。例如：</p>
+<pre><code>include( myotherapp.pro )
+</code></pre><p>myotherapp.pro项目文件中的任何设置现在都会被处理。</p>
+<p>isEmpty( variablename )</p>
+<p>这和使用count( variablename, 0 )是一样的。如果叫做variablename的变量没有任何元素，那么这个作用域中的设置将会被处理。例如：</p>
+<pre><code>isEmpty( CONFIG ) {
+    CONFIG += qt warn_on debug
+}
+</code></pre><p>message( string )</p>
+<p>这个函数只是简单地在控制台上输出消息。</p>
+<pre><code>message( &quot;This is a message&quot; )
+</code></pre><p>文本“This is a message”被输出到控制台上并且对于项目文件的处理将会继续进行。</p>
+<p>system( command )</p>
+<p>特定指令被执行并且如果它返回一个1的退出值，那么这个作用域中的设置将会被处理。例如：</p>
+<pre><code>system( ls /bin ) {
+    SOURCES += bin/main.cpp
+    HEADERS += bin/main.h
+}
+</code></pre><p>所以如果命令ls /bin返回1，那么bin/main.cpp将被添加到源文件列表中并且bin/main.h将被添加到头文件列表中。</p>
+<p>infile( filename, var, val )</p>
+<p>如果filename文件（当它被qmake自己解析时）包含一个值为val的变量var，那么这个函数将会返回成功。你也可以不传递第三个参数（val），这时函数将只测试文件中是否分配有这样一个变量var。</p>
+<h1 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a>应用举例</h1><h2 id="判断编译环境，调用合适的链接库"><a href="#判断编译环境，调用合适的链接库" class="headerlink" title="判断编译环境，调用合适的链接库"></a>判断编译环境，调用合适的链接库</h2><pre><code>win32:contains(QMAKE_HOST.arch, x86_64) {
+LIBS += -L$$PWD/x64/ -laticonvert
+} else {
+LIBS += -L$$PWD/x86/ -laticonvert
+}
+</code></pre><p>如果在windows平台下，QMAKE_HOST的arch值中包含x86_64（编译环境为64位），则使用64位库，否则使用32位库。</p>
+<h2 id="通过include-对多个库进行便捷引用和管理"><a href="#通过include-对多个库进行便捷引用和管理" class="headerlink" title="通过include()对多个库进行便捷引用和管理"></a>通过include()对多个库进行便捷引用和管理</h2><pre><code>include(Libraries/CML/LinkCML.pri)
+include(Libraries/BOT/LinkRobot.pri)
+include(Libraries/MPC08/LinkMpc08.pri)
+include(Libraries/fuzzy/LinkFL.pri)
+include(Libraries/FT/LinkFT.pri)
+include(Libraries/polaris/LinkNDI.pri)
+include(Libraries/MillToolCtrl/LinkMillTool.pri)
+</code></pre><p>LinkNDI.pri<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">QT += serialport</div><div class="line"></div><div class="line">INCLUDEPATH += $$PWD</div><div class="line"></div><div class="line">SOURCES += \</div><div class="line">    $$PWD/comm32.cpp \</div><div class="line">    $$PWD/conversion.cpp \</div><div class="line">    $$PWD/baseFunc.cpp \</div><div class="line">    $$PWD/systemCRC.cpp \</div><div class="line">    $$PWD/ndiwidget.cpp</div><div class="line"></div><div class="line">HEADERS +=$$PWD/ndiwidget.h</div><div class="line"></div><div class="line">FORMS+= $$PWD/ndiwidget.ui</div></pre></td></tr></table></figure></p>
+<p>…</p>
 
       
     </div>
@@ -461,13 +487,13 @@ npm install hexo-renderer-marked --save
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/posts/Hexo/HEXO-Github-快速搭建属于自己的博客/">HEXO+Github Create your Blog</a></p>
+        <p><span>本文标题:</span><a href="/posts/QtStudy/Qt中pro文件写法/">Qt pro文件写法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Mark</a></p>
-        <p><span>发布时间:</span>2016-08-07, 15:05:11</p>
-        <p><span>最后更新:</span>2016-08-17, 09:48:59</p>
+        <p><span>发布时间:</span>2017-04-19, 19:29:00</p>
+        <p><span>最后更新:</span>2017-04-19, 19:57:55</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/posts/Hexo/HEXO-Github-快速搭建属于自己的博客/" title="HEXO+Github Create your Blog">http://markma.tk/posts/Hexo/HEXO-Github-快速搭建属于自己的博客/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://markma.tk/posts/Hexo/HEXO-Github-快速搭建属于自己的博客/　　作者: Mark" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/posts/QtStudy/Qt中pro文件写法/" title="Qt pro文件写法">http://markma.tk/posts/QtStudy/Qt中pro文件写法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://markma.tk/posts/QtStudy/Qt中pro文件写法/　　作者: Mark" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -479,16 +505,10 @@ npm install hexo-renderer-marked --save
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/posts/QtStudy/Qt中界面类名的修改/">
-                    Qt ui界面调用
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/posts/Journal/hello-world/">
-                    Hello World
+                <a href="/posts/OpenSource/Qt串口开发QextserialPort/">
+                    Qt串口开发QextserialPort
                 </a>
             </div>
         
@@ -500,7 +520,7 @@ npm install hexo-renderer-marked --save
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HEXO-Github-搭建属于自己的博客"><span class="toc-number">1.</span> <span class="toc-text">HEXO+Github,搭建属于自己的博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置环境"><span class="toc-number">1.1.</span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置Github"><span class="toc-number">1.2.</span> <span class="toc-text">配置Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署步骤"><span class="toc-number">1.3.</span> <span class="toc-text">部署步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些常用命令："><span class="toc-number">1.4.</span> <span class="toc-text">一些常用命令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#报错总结"><span class="toc-number">1.5.</span> <span class="toc-text">报错总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-Deployer-not-found-git-或者-ERROR-Deployer-not-found-github"><span class="toc-number">1.5.1.</span> <span class="toc-text">ERROR Deployer not found: git 或者 ERROR Deployer not found: github</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-Process-failed-layout-DS-Store-那么进入主题里面layout和-partial目录下，使用删除命令："><span class="toc-number">1.5.2.</span> <span class="toc-text">ERROR Process failed: layout/.DS_Store , 那么进入主题里面layout和_partial目录下，使用删除命令：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ERROR-Plugin-load-failed-hexo-server"><span class="toc-number">1.5.3.</span> <span class="toc-text">ERROR Plugin load failed: hexo-server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#执行命令hexo-server，提示：Usage-hexo-…"><span class="toc-number">1.5.4.</span> <span class="toc-text">执行命令hexo server，提示：Usage: hexo ….</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提示：hexo-server-0-1-2-node-modules-hexo-server"><span class="toc-number">1.5.5.</span> <span class="toc-text">提示：hexo-server@0.1.2 node_modules/hexo-server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#白板和Cannot-GET-几个字"><span class="toc-number">1.5.6.</span> <span class="toc-text">白板和Cannot GET / 几个字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题推荐"><span class="toc-number">1.6.</span> <span class="toc-text">主题推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#修改头像"><span class="toc-number">1.6.1.</span> <span class="toc-text">修改头像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#附送随机设置背景网站unsplash"><span class="toc-number">1.6.2.</span> <span class="toc-text">附送随机设置背景网站unsplash</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语法简介"><span class="toc-number">1.</span> <span class="toc-text">语法简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#操作符"><span class="toc-number">1.1.</span> <span class="toc-text">操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”操作符"><span class="toc-number">1.1.1.</span> <span class="toc-text">“=”操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”操作符-1"><span class="toc-number">1.1.2.</span> <span class="toc-text">“+=”操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”操作符-2"><span class="toc-number">1.1.3.</span> <span class="toc-text">“-=”操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”操作符-3"><span class="toc-number">1.1.4.</span> <span class="toc-text">“*=”操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”操作符-4"><span class="toc-number">1.1.5.</span> <span class="toc-text">“~=”操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域"><span class="toc-number">1.2.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.3.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内置函数"><span class="toc-number">1.4.</span> <span class="toc-text">内置函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试函数"><span class="toc-number">1.5.</span> <span class="toc-text">测试函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#应用举例"><span class="toc-number">2.</span> <span class="toc-text">应用举例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#判断编译环境，调用合适的链接库"><span class="toc-number">2.1.</span> <span class="toc-text">判断编译环境，调用合适的链接库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过include-对多个库进行便捷引用和管理"><span class="toc-number">2.2.</span> <span class="toc-text">通过include()对多个库进行便捷引用和管理</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -536,7 +556,7 @@ npm install hexo-renderer-marked --save
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"HEXO+Github Create your Blog　| Mark's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Qt pro文件写法　| Mark's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -552,7 +572,7 @@ npm install hexo-renderer-marked --save
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="posts/Hexo/HEXO-Github-快速搭建属于自己的博客/" data-title="HEXO+Github Create your Blog" data-url="http://markma.tk/posts/Hexo/HEXO-Github-快速搭建属于自己的博客/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="posts/QtStudy/Qt中pro文件写法/" data-title="Qt pro文件写法" data-url="http://markma.tk/posts/QtStudy/Qt中pro文件写法/"></div>
     <script>
         var duoshuoQuery = {short_name:"markma"};
         var loadComment = function(){
@@ -575,15 +595,13 @@ npm install hexo-renderer-marked --save
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/posts/QtStudy/Qt中界面类名的修改/" title="上一篇: Qt ui界面调用">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/posts/Journal/hello-world/" title="下一篇: Hello World">
+            <a href="/posts/OpenSource/Qt串口开发QextserialPort/" title="下一篇: Qt串口开发QextserialPort">
                 <i class="fa fa-angle-right"></i>
             </a>
         
