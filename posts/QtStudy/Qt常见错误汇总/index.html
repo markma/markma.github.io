@@ -15,16 +15,19 @@
 
 
 
-<meta name="description" content="Link类错误：Link2019:1.删除debug和release文件见重新编译。2.若仍出现此错误，说明存在有已声明但还未实现的方法。3.查看是否只包含了头文件，但工程中还没有对应的源文件（.cpp）">
+<meta name="description" content="Qt 中常见错误即解决办法汇总。当然对其他C++ IDE出现的错误也通用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Qt 常见错误汇总">
 <meta property="og:url" content="http://markma.tk/posts/QtStudy/Qt常见错误汇总/index.html">
 <meta property="og:site_name" content="Mark's Blog">
-<meta property="og:description" content="Link类错误：Link2019:1.删除debug和release文件见重新编译。2.若仍出现此错误，说明存在有已声明但还未实现的方法。3.查看是否只包含了头文件，但工程中还没有对应的源文件（.cpp）">
-<meta property="og:updated_time" content="2016-12-16T07:58:05.789Z">
+<meta property="og:description" content="Qt 中常见错误即解决办法汇总。当然对其他C++ IDE出现的错误也通用。">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493350900&di=ee7bbb178d19a43d719319e7ca9b306d&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.f0580.com%2Fadmin%2Fkindeditor%2Fattached%2Fimage%2F20150914%2F20150914090035_68430.jpg">
+<meta property="og:image" content="http://i.imgur.com/ab9KPlU.png">
+<meta property="og:updated_time" content="2017-04-21T03:41:52.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt 常见错误汇总">
-<meta name="twitter:description" content="Link类错误：Link2019:1.删除debug和release文件见重新编译。2.若仍出现此错误，说明存在有已声明但还未实现的方法。3.查看是否只包含了头文件，但工程中还没有对应的源文件（.cpp）">
+<meta name="twitter:description" content="Qt 中常见错误即解决办法汇总。当然对其他C++ IDE出现的错误也通用。">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493350900&di=ee7bbb178d19a43d719319e7ca9b306d&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.f0580.com%2Fadmin%2Fkindeditor%2Fattached%2Fimage%2F20150914%2F20150914090035_68430.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -337,7 +340,33 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Link类错误："><a href="#Link类错误：" class="headerlink" title="Link类错误："></a>Link类错误：</h2><h3 id="Link2019"><a href="#Link2019" class="headerlink" title="Link2019:"></a>Link2019:</h3><p>1.删除debug和release文件见重新编译。<br>2.若仍出现此错误，说明存在有已声明但还未实现的方法。<br>3.查看是否只包含了头文件，但工程中还没有对应的源文件（.cpp）</p>
+        <blockquote>
+<p>Qt 中常见错误即解决办法汇总。当然对其他C++ IDE出现的错误也通用。<br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1493350900&amp;di=ee7bbb178d19a43d719319e7ca9b306d&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fwww.f0580.com%2Fadmin%2Fkindeditor%2Fattached%2Fimage%2F20150914%2F20150914090035_68430.jpg" alt=""><br><a id="more"></a></p>
+</blockquote>
+<h2 id="Link类错误："><a href="#Link类错误：" class="headerlink" title="Link类错误："></a>Link类错误：</h2><h3 id="Link2019"><a href="#Link2019" class="headerlink" title="Link2019:"></a>Link2019:</h3><p>1.删除debug和release文件重新编译。<br>2.若仍出现此错误，说明存在有已声明但还未实现的方法。<br>3.查看是否只包含了头文件，但工程中还没有对应的源文件（.cpp）</p>
+<h3 id="Link2001"><a href="#Link2001" class="headerlink" title="Link2001"></a>Link2001</h3><p>一．由于代码错误导致的LNK2001。   </p>
+<ol>
+<li><p>不相匹配的程序代码或模块定义（.DEF）文件能导致LNK2001。例如,  如果在C＋＋源文件内声明了一变量“var1”，却试图在另一文件内以变量 “VAR1”访问该变量,将发生该错误。   </p>
+</li>
+<li><p>如果使用的内联函数是在.CPP文件内定义的，而不是在头文件内定义将导致LNK2001错误。 </p>
+</li>
+<li><p>调用函数时如果所用的参数类型同函数声明时的类型不符将会产生LNK2001。   </p>
+</li>
+<li><p>试图从基类的构造函数或析构函数中调用虚拟函数时将会导致LNK2001。   </p>
+</li>
+<li><p>要注意函数和变量的可公用性，只有全局变量、函数是可公用的。静态函数和静态变量具有相同的使用范围限制。当试图从文件外部访问任何没有在该文件内声明的静 态变量时将导致编译错误或LNK2001。函数内声明的变量（局部变量）只能在该函数的范围内使用。C＋＋的全局常量只有静态连接性能。这不同于C，如果试图在C＋＋的多个文件内使用全局变量也会产生LNK2001错误。一种解决的方法是需要时在头文件中加入该常量的初始化代码，并在.CPP文件中包含该头文件；另一种方法是使用时给该变量赋以常数。  </p>
+</li>
+<li><p>试图调用已声明却尚未定义的静态成员属性（变量）。并且附带Link1120错误，如下图：<br><img src="http://i.imgur.com/ab9KPlU.png" alt=""></p>
+</li>
+</ol>
+<p>二．由于编译和链接的设置而造成的LNK2001<br>  　　1. 如果编译时使用的是/NOD（/NODEFAULTLIB）选项，程序所需要的运行库和MFC库在连接时由编译器写入目标文件模块，但除非在文件中明确包含这些库名，否则这些库不会被链接进工程文件。在这种情况下使用/NOD将导 致错误LNK2001。 </p>
+<p>  　　2. 如果没有为wWinMainCRTStartup设定程序入口，在使用Unicode和MFC时将得到“unresolved   external   on   _WinMain@16”的LNK2001错误信息。</p>
+<p>  　　3. 使用/MD选项编译时,既然所有的运行库都被保留在动态链接库之内，源文件中对“func”的引用，在目标文件里即对“<strong>imp</strong>func” 的引用。如果试图使用静态LIBC.LIB或LIBCMT.LIB进行连接，将在<strong>imp</strong>func上发生LNK2001；如果不使用/MD选项编译，在使用MSVCxx.LIB连接时也会发生LNK2001。   </p>
+<p>  　　4. 使用/ML选项编译时，如用LIBCMT.LIB链接会在_errno上发生LNK2001。 </p>
+<p>  　　5. 当编译调试版的应用程序时，如果采用发行版模态库进行连接也会产生LNK2001；同样，使用调试版模态库连接发行版应用程序时也会产生相同的问题。   </p>
+<p>  　　6. 不同版本的库和编译器的混合使用也能产生问题，因为新版的库里可能包含早先的版本没有的符号和说明。   </p>
+<p>  　　7. 在不同的模块使用内联和非内联的编译选项能够导致LNK2001。如果创建C＋＋库时打开了函数内联（/Ob1或/Ob2），但是在描述该函数的相应头文件里却关闭了函数内联（没有inline关键字），这时将得到该错误信息。为避免该问题的发生，应该在相应的头文件中用inline关键字标志内联函数。   </p>
+<p>  　　8. 不正确的/SUBSYSTEM或/ENTRY设置也能导致LNK2001。  </p>
 
       
     </div>
@@ -349,7 +378,7 @@
         <p><span>本文标题:</span><a href="/posts/QtStudy/Qt常见错误汇总/">Qt 常见错误汇总</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Mark</a></p>
         <p><span>发布时间:</span>2016-12-14, 18:09:10</p>
-        <p><span>最后更新:</span>2016-12-16, 15:58:05</p>
+        <p><span>最后更新:</span>2017-04-21, 11:41:52</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/posts/QtStudy/Qt常见错误汇总/" title="Qt 常见错误汇总">http://markma.tk/posts/QtStudy/Qt常见错误汇总/</a>
             <span class="copy-path" data-clipboard-text="原文: http://markma.tk/posts/QtStudy/Qt常见错误汇总/　　作者: Mark" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -385,7 +414,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Link类错误："><span class="toc-number">1.</span> <span class="toc-text">Link类错误：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Link2019"><span class="toc-number">1.1.</span> <span class="toc-text">Link2019:</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Link类错误："><span class="toc-number">1.</span> <span class="toc-text">Link类错误：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Link2019"><span class="toc-number">1.1.</span> <span class="toc-text">Link2019:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Link2001"><span class="toc-number">1.2.</span> <span class="toc-text">Link2001</span></a></li></ol></li></ol>
         
     </div>
     <style>
