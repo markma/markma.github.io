@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title><![CDATA[Cpp中回调函数与静态成员]]></title>
+      <url>http://markma.tk/posts/QtStudy/Cpp%E4%B8%AD%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%8E%E9%9D%99%E6%80%81%E6%88%90%E5%91%98/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>C++回调函数必须为静态函数的原因。以及静态函数调用非静态成员的方法。</p>
+</blockquote>
+<p>转自<a href="http://blog.csdn.net/u012072012/article/details/45537387" title=" C++回调函数必须为静态函数的原因" target="_blank" rel="external">http://blog.csdn.net/u012072012/article/details/45537387</a><br><a id="more"></a></p>
+<p>一个对象的this指针并不是对象本身的一部分，不会影响sizeof(对象)的结果。this作用域是在类内部，当在类的非静态成员函数中访问类的非静态成员的时候，编译器会自动将对象本身的地址作为一个隐含参数传递给函数。也就是说，即使你没有写上this指针，编译器在编译的时候也是加上this的，它作为非静态成员函数的隐含形参，对各成员的访问均通过this进行。</p>
+<p>为了实现回调，我们必须把this指针给转换掉！可为了在该函数中可以直接操作该类中的成员，我们必须保留this指针！所以这是矛盾的。<br>在类封装回调函数：<br> a.回调函数只能是全局的或是静态的。</p>
+<p> b.全局函数会破坏类的封装性，故不予采用。</p>
+<p> c.静态函数只能访问类的静态成员，不能访问类中非静态成员</p>
+<p>让静态函数访问类的非静态成员的方法：<br>在消息回调的函数参数中传递一个该类的指针即可,就像类中创建一个多线程的回调一样.将类的指针传递给该回调函数,然后用该指针调用类的非静态成员函数和指针.或者用一个类的全局指针数组,保存每一个创建出来的类的this指针,用全局指针去调用。如下：<br> class A()<br>回调函数中访问非静态成员<br>  由于回调函数往往有固定定义，并不接受  A * pThis 参数<br>   如：CALLBACK MyTimerProc(HWND hwnd,UINT uMsg,UINT idEvent,DWORD dwTime);<br> 【解决方案1】：本方案当遇到有多个类实例对象时会有问题。原因是pThis指针只能指向一个对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>; <span class="comment">//静态回调函数</span></div><div class="line"></div><div class="line">      <span class="function"><span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>;  <span class="comment">//非静态函数 </span></div><div class="line"></div><div class="line">      <span class="keyword">static</span> A * pThis;   <span class="comment">//静态对象指针</span></div><div class="line">&#125;  </div><div class="line"></div><div class="line">A * A::pThis=<span class="literal">NULL</span>;</div><div class="line">A::A()   <span class="comment">//构造函数中将this指针赋给pThis，使得回调函数能通过pThis指针访问本对象</span></div><div class="line">&#123;</div><div class="line">       pThis=<span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> A::a()</div><div class="line">&#123;</div><div class="line">      <span class="keyword">if</span> (pThis==<span class="literal">NULL</span>) <span class="keyword">return</span>;</div><div class="line">      pThis-&gt;b(); <span class="comment">//回调函数中调用非静态函数 </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  【解决方案2】：本方案解决多个类实例对象时方案1的问题。用映射表存所有对象地址，每个对象保存自己的ID号。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> CMap&lt;UINT,UINT,A*,A*&gt; CAMap;</div><div class="line"><span class="function"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>; <span class="comment">//静态回调函数</span></div><div class="line">      <span class="function"><span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>;  <span class="comment">//非静态函数 </span></div><div class="line">      <span class="keyword">int</span> m_ID;  <span class="comment">//本对象在列表中的ID号</span></div><div class="line">      <span class="keyword">static</span> <span class="keyword">int</span> m_SID;   <span class="comment">//静态当前对象ID        (需要时，将m_ID赋值给m_SID以起到调用本对象函数的功能)</span></div><div class="line">      <span class="keyword">static</span> CAMap m_Map; <span class="comment">//静态对象映射表</span></div><div class="line">&#125;  </div><div class="line"></div><div class="line">CAMap A::m_Map;</div><div class="line"></div><div class="line"><span class="keyword">int</span>   A::m_SID=<span class="number">0</span>;</div><div class="line"></div><div class="line">  </div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">A::A()   <span class="comment">//构造函数中将this指针赋给pThis，使得回调函数能通过pThis指针访问本对象</span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">if</span>(m_Map.IsEmpty())</div><div class="line">      &#123;</div><div class="line">   			m_ID=<span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">else</span></div><div class="line">      &#123; </div><div class="line">        m_ID=m_Map.GetCount()+<span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line">      m_Map.SetAt( m_ID, <span class="keyword">this</span> );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> A::a()</div><div class="line">&#123;</div><div class="line">      <span class="keyword">if</span> (m_Map.IsEmpty()) <span class="keyword">return</span>;</div><div class="line">      A * pThis=<span class="literal">NULL</span>;</div><div class="line">      <span class="keyword">if</span>(m_Map.Lookup(m_SID,pThis))</div><div class="line">      &#123;</div><div class="line">   		pThis-&gt;b(); <span class="comment">//回调函数中调用非静态函数 </span></div><div class="line">      &#125;;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+      
+        <categories>
+            
+            <category> QtStudy </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Qt </tag>
+            
+            <tag> Cpp </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Qt pro文件写法]]></title>
       <url>http://markma.tk/posts/QtStudy/Qt%E4%B8%ADpro%E6%96%87%E4%BB%B6%E5%86%99%E6%B3%95/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -317,11 +350,11 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
         
         <tags>
             
+            <tag> Cpp </tag>
+            
             <tag> OpenLibrary </tag>
             
             <tag> Robot </tag>
-            
-            <tag> Cpp </tag>
             
         </tags>
         

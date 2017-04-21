@@ -15,13 +15,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://markma.tk/tags/index.html">
+<meta name="description" content="C++回调函数必须为静态函数的原因。以及静态函数调用非静态成员的方法。
+
+转自http://blog.csdn.net/u012072012/article/details/45537387">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cpp中回调函数与静态成员">
+<meta property="og:url" content="http://markma.tk/posts/QtStudy/Cpp中回调函数与静态成员/index.html">
 <meta property="og:site_name" content="Mark's Blog">
-<meta property="og:updated_time" content="2016-08-16T12:29:48.095Z">
+<meta property="og:description" content="C++回调函数必须为静态函数的原因。以及静态函数调用非静态成员的方法。
+
+转自http://blog.csdn.net/u012072012/article/details/45537387">
+<meta property="og:updated_time" content="2017-04-21T07:45:52.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="Cpp中回调函数与静态成员">
+<meta name="twitter:description" content="C++回调函数必须为静态函数的原因。以及静态函数调用非静态成员的方法。
+
+转自http://blog.csdn.net/u012072012/article/details/45537387">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -51,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>tags | Mark&#39;s Blog</title>
+<title>Cpp中回调函数与静态成员 | Mark&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -61,7 +70,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -290,11 +299,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-posts/QtStudy/Cpp中回调函数与静态成员" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-      <time datetime="2016-08-16T12:29:48.000Z" itemprop="datePublished">2016-08-16</time>
+      <a href="/posts/QtStudy/Cpp中回调函数与静态成员/" class="article-date">
+      <time datetime="2017-04-21T07:41:37.000Z" itemprop="datePublished">2017-04-21</time>
 </a>
 
 
@@ -309,7 +318,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      Cpp中回调函数与静态成员
     </h1>
   
 
@@ -317,8 +326,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/QtStudy/">QtStudy</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cpp/">Cpp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -326,96 +343,77 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <blockquote>
+<p>C++回调函数必须为静态函数的原因。以及静态函数调用非静态成员的方法。</p>
+</blockquote>
+<p>转自<a href="http://blog.csdn.net/u012072012/article/details/45537387" title=" C++回调函数必须为静态函数的原因" target="_blank" rel="external">http://blog.csdn.net/u012072012/article/details/45537387</a><br><a id="more"></a></p>
+<p>一个对象的this指针并不是对象本身的一部分，不会影响sizeof(对象)的结果。this作用域是在类内部，当在类的非静态成员函数中访问类的非静态成员的时候，编译器会自动将对象本身的地址作为一个隐含参数传递给函数。也就是说，即使你没有写上this指针，编译器在编译的时候也是加上this的，它作为非静态成员函数的隐含形参，对各成员的访问均通过this进行。</p>
+<p>为了实现回调，我们必须把this指针给转换掉！可为了在该函数中可以直接操作该类中的成员，我们必须保留this指针！所以这是矛盾的。<br>在类封装回调函数：<br> a.回调函数只能是全局的或是静态的。</p>
+<p> b.全局函数会破坏类的封装性，故不予采用。</p>
+<p> c.静态函数只能访问类的静态成员，不能访问类中非静态成员</p>
+<p>让静态函数访问类的非静态成员的方法：<br>在消息回调的函数参数中传递一个该类的指针即可,就像类中创建一个多线程的回调一样.将类的指针传递给该回调函数,然后用该指针调用类的非静态成员函数和指针.或者用一个类的全局指针数组,保存每一个创建出来的类的this指针,用全局指针去调用。如下：<br> class A()<br>回调函数中访问非静态成员<br>  由于回调函数往往有固定定义，并不接受  A * pThis 参数<br>   如：CALLBACK MyTimerProc(HWND hwnd,UINT uMsg,UINT idEvent,DWORD dwTime);<br> 【解决方案1】：本方案当遇到有多个类实例对象时会有问题。原因是pThis指针只能指向一个对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>; <span class="comment">//静态回调函数</span></div><div class="line"></div><div class="line">      <span class="function"><span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>;  <span class="comment">//非静态函数 </span></div><div class="line"></div><div class="line">      <span class="keyword">static</span> A * pThis;   <span class="comment">//静态对象指针</span></div><div class="line">&#125;  </div><div class="line"></div><div class="line">A * A::pThis=<span class="literal">NULL</span>;</div><div class="line">A::A()   <span class="comment">//构造函数中将this指针赋给pThis，使得回调函数能通过pThis指针访问本对象</span></div><div class="line">&#123;</div><div class="line">       pThis=<span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> A::a()</div><div class="line">&#123;</div><div class="line">      <span class="keyword">if</span> (pThis==<span class="literal">NULL</span>) <span class="keyword">return</span>;</div><div class="line">      pThis-&gt;b(); <span class="comment">//回调函数中调用非静态函数 </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  【解决方案2】：本方案解决多个类实例对象时方案1的问题。用映射表存所有对象地址，每个对象保存自己的ID号。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> CMap&lt;UINT,UINT,A*,A*&gt; CAMap;</div><div class="line"><span class="function"><span class="keyword">class</span> <span class="title">A</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>; <span class="comment">//静态回调函数</span></div><div class="line">      <span class="function"><span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>;  <span class="comment">//非静态函数 </span></div><div class="line">      <span class="keyword">int</span> m_ID;  <span class="comment">//本对象在列表中的ID号</span></div><div class="line">      <span class="keyword">static</span> <span class="keyword">int</span> m_SID;   <span class="comment">//静态当前对象ID        (需要时，将m_ID赋值给m_SID以起到调用本对象函数的功能)</span></div><div class="line">      <span class="keyword">static</span> CAMap m_Map; <span class="comment">//静态对象映射表</span></div><div class="line">&#125;  </div><div class="line"></div><div class="line">CAMap A::m_Map;</div><div class="line"></div><div class="line"><span class="keyword">int</span>   A::m_SID=<span class="number">0</span>;</div><div class="line"></div><div class="line">  </div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">A::A()   <span class="comment">//构造函数中将this指针赋给pThis，使得回调函数能通过pThis指针访问本对象</span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">if</span>(m_Map.IsEmpty())</div><div class="line">      &#123;</div><div class="line">   			m_ID=<span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">else</span></div><div class="line">      &#123; </div><div class="line">        m_ID=m_Map.GetCount()+<span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line">      m_Map.SetAt( m_ID, <span class="keyword">this</span> );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">void</span> A::a()</div><div class="line">&#123;</div><div class="line">      <span class="keyword">if</span> (m_Map.IsEmpty()) <span class="keyword">return</span>;</div><div class="line">      A * pThis=<span class="literal">NULL</span>;</div><div class="line">      <span class="keyword">if</span>(m_Map.Lookup(m_SID,pThis))</div><div class="line">      &#123;</div><div class="line">   		pThis-&gt;b(); <span class="comment">//回调函数中调用非静态函数 </span></div><div class="line">      &#125;;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
 
-
-    <!-- Tag Cloud Page -->
-    <hr>
-<br>
-<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Journal/">Journal</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/OpenSource/">OpenSource</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/QtStudy/">QtStudy</a><span class="category-list-count">4</span></li></ul>
-
-<p class="count"></p>
-
-<div class="tags">
-    <a href="/tags/Cpp/" style="font-size: 28.67px; color: #2b2b2b">Cpp</a> <a href="/tags/Hexo/" style="font-size: 16px; color: #808080">Hexo</a> <a href="/tags/Journal/" style="font-size: 16px; color: #808080">Journal</a> <a href="/tags/OpenLibrary/" style="font-size: 28.67px; color: #2b2b2b">OpenLibrary</a> <a href="/tags/Python/" style="font-size: 22.33px; color: #555">Python</a> <a href="/tags/Qt/" style="font-size: 35px; color: #000">Qt</a> <a href="/tags/Robot/" style="font-size: 16px; color: #808080">Robot</a> <a href="/tags/Wiki/" style="font-size: 16px; color: #808080">Wiki</a>
-</div>
-<style>
-    .category-list li{
-        display: inline-block;
-        margin: 0 1em .5em 0;
-        padding: 4px;
-        border: 1px solid lightgray;
-        font-size: 1.2rem;
-    }
-    .category-list a { color: gray; }
-    .category-list-item:hover a {
-        color: gray;
-        text-decoration: none;
-    }
-    .category-list-count {
-        margin-left: 2px;
-        font-size: .9rem;
-    }
-    .article-entry ul li:before{ display: none; }
-    .article-inner { text-align: center; }
-    .tags {
-        max-width: 42em;
-        margin: 2em auto;
-        margin-top: 0em;
-    }
-    .tags a {
-        margin-right: 1em;
-        line-height: 65px;
-        border-bottom: 1px solid gray;
-        white-space: nowrap;
-        transition: border-bottom .5s;
-    }
-    .tags a:hover {
-        border-bottom: 3px dotted gray;
-        text-decoration: none;
-    }
-    #count > span {
-        margin: auto .2em;
-        font-weight: bold;
-    }
-</style>
-
-<!-- Count tags and categories -->
-<p id="count">
-         <span><script>document.write($(".category-list-item").length)</script></span>Categories,
-         <span><script>document.write($(".tags > a").length)</script></span>Tags
-</p>
-<script>
-    $('#count').appendTo('.count');
-</script>
-
-          
-        
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>Title:</span><a href="/posts/QtStudy/Cpp中回调函数与静态成员/">Cpp中回调函数与静态成员</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Mark</a></p>
+        <p><span>Created:</span>2017-04-21, 15:41:37</p>
+        <p><span>Updated:</span>2017-04-21, 15:45:52</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/posts/QtStudy/Cpp中回调函数与静态成员/" title="Cpp中回调函数与静态成员">http://markma.tk/posts/QtStudy/Cpp中回调函数与静态成员/</a>
+            <span class="copy-path" data-clipboard-text="From http://markma.tk/posts/QtStudy/Cpp中回调函数与静态成员/　　By Mark" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/posts/QtStudy/Qt中pro文件写法/">
+                    Qt pro文件写法
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
 
 
 
@@ -433,7 +431,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"tags　| Mark's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Cpp中回调函数与静态成员　| Mark's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -449,7 +447,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="tags/index.html" data-title="tags" data-url="http://markma.tk/tags/index.html"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="posts/QtStudy/Cpp中回调函数与静态成员/" data-title="Cpp中回调函数与静态成员" data-url="http://markma.tk/posts/QtStudy/Cpp中回调函数与静态成员/"></div>
     <script>
         var duoshuoQuery = {short_name:"markma"};
         var loadComment = function(){
@@ -467,6 +465,24 @@
 </div>
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/posts/QtStudy/Qt中pro文件写法/" title="Next: Qt pro文件写法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/QtStudy/Cpp中回调函数与静态成员/">Cpp中回调函数与静态成员</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/QtStudy/Qt中pro文件写法/">Qt pro文件写法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/Qt串口开发QextserialPort/">Qt串口开发QextserialPort</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/QtStudy/Qt常见错误汇总/">Qt 常见错误汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/Qt绘图库QCustomplot/">Qt绘图库 QCustomPlot</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/cpp机器人库robot-library/">cpp机器人库robot-library</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/OpenSource/开源库大全/">开源库大全</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Python/Python-入门学习（二）/">Python-入门学习（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Python/Python-入门学习（一）/">Python-入门学习（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/QtStudy/Qt中界面类名的修改/">Qt ui界面调用</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Hexo/HEXO-Github-快速搭建属于自己的博客/">HEXO+Github Create your Blog</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Journal/hello-world/">Hello World</a></li></ul>
 
 
 
