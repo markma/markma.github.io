@@ -69,9 +69,9 @@
         
         <tags>
             
-            <tag> Cpp </tag>
-            
             <tag> Qt </tag>
+            
+            <tag> Cpp </tag>
             
         </tags>
         
@@ -233,9 +233,9 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
         
         <tags>
             
-            <tag> Cpp </tag>
-            
             <tag> Qt </tag>
+            
+            <tag> Cpp </tag>
             
         </tags>
         
@@ -391,9 +391,9 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
         
         <tags>
             
-            <tag> Cpp </tag>
-            
             <tag> OpenLibrary </tag>
+            
+            <tag> Cpp </tag>
             
             <tag> Robot </tag>
             
@@ -716,9 +716,9 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
         
         <tags>
             
-            <tag> Cpp </tag>
-            
             <tag> Qt </tag>
+            
+            <tag> Cpp </tag>
             
         </tags>
         
