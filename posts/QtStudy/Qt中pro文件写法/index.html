@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://markma.tk/posts/QtStudy/Qt中pro文件写法/index.html">
 <meta property="og:site_name" content="Mark's Blog">
 <meta property="og:description" content="Qt 中pro文件涉及到对项目的一些配置">
-<meta property="og:updated_time" content="2017-04-19T11:57:55.823Z">
+<meta property="og:updated_time" content="2017-07-05T12:59:51.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt pro文件写法">
 <meta name="twitter:description" content="Qt 中pro文件涉及到对项目的一些配置">
@@ -155,13 +155,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -291,7 +291,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-posts/QtStudy/Qt中pro文件写法" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -469,6 +469,22 @@ LIBS += -L$$PWD/x64/ -laticonvert
 } else {
 LIBS += -L$$PWD/x86/ -laticonvert
 }
+
+CONFIG+=debug_and_release
+CONFIG(debug, debug|release){
+TARGET = ui_debug
+} else {
+TARGET = ui_release
+}
+
+CONFIG(debug, debug|release) {
+LIBS += -L../lib1 -lhellod
+} else {
+LIBS += -L../lib2 -lhello
+}
+
+CONFIG(debug, debug|release)：LIBS += -L../lib1 -lhellod
+CONFIG(release, debug|release)：LIBS += -L../lib2 -lhello
 </code></pre><p>如果在windows平台下，QMAKE_HOST的arch值中包含x86_64（编译环境为64位），则使用64位库，否则使用32位库。</p>
 <h2 id="通过include-对多个库进行便捷引用和管理"><a href="#通过include-对多个库进行便捷引用和管理" class="headerlink" title="通过include()对多个库进行便捷引用和管理"></a>通过include()对多个库进行便捷引用和管理</h2><pre><code>include(Libraries/CML/LinkCML.pri)
 include(Libraries/BOT/LinkRobot.pri)
@@ -487,17 +503,17 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/posts/QtStudy/Qt中pro文件写法/">Qt pro文件写法</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">Mark</a></p>
-        <p><span>发布时间:</span>2017-04-19, 19:29:00</p>
-        <p><span>最后更新:</span>2017-04-19, 19:57:55</p>
+        <p><span>Title:</span><a href="/posts/QtStudy/Qt中pro文件写法/">Qt pro文件写法</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">Mark</a></p>
+        <p><span>Created:</span>2017-04-19, 19:29:00</p>
+        <p><span>Updated:</span>2017-07-05, 20:59:51</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/posts/QtStudy/Qt中pro文件写法/" title="Qt pro文件写法">http://markma.tk/posts/QtStudy/Qt中pro文件写法/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://markma.tk/posts/QtStudy/Qt中pro文件写法/　　作者: Mark" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/posts/QtStudy/Qt中pro文件写法/" title="Qt pro文件写法">http://markma.tk/posts/QtStudy/Qt中pro文件写法/</a>
+            <span class="copy-path" data-clipboard-text="From http://markma.tk/posts/QtStudy/Qt中pro文件写法/　　By Mark" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -524,7 +540,7 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
             <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#语法简介"><span class="toc-number">1.</span> <span class="toc-text">语法简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#操作符"><span class="toc-number">1.1.</span> <span class="toc-text">操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”操作符"><span class="toc-number">1.1.1.</span> <span class="toc-text">“=”操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”操作符-1"><span class="toc-number">1.1.2.</span> <span class="toc-text">“+=”操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”操作符-2"><span class="toc-number">1.1.3.</span> <span class="toc-text">“-=”操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”操作符-3"><span class="toc-number">1.1.4.</span> <span class="toc-text">“*=”操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”操作符-4"><span class="toc-number">1.1.5.</span> <span class="toc-text">“~=”操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域"><span class="toc-number">1.2.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">1.3.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内置函数"><span class="toc-number">1.4.</span> <span class="toc-text">内置函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试函数"><span class="toc-number">1.5.</span> <span class="toc-text">测试函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#应用举例"><span class="toc-number">2.</span> <span class="toc-text">应用举例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#判断编译环境，调用合适的链接库"><span class="toc-number">2.1.</span> <span class="toc-text">判断编译环境，调用合适的链接库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过include-对多个库进行便捷引用和管理"><span class="toc-number">2.2.</span> <span class="toc-text">通过include()对多个库进行便捷引用和管理</span></a></li></ol></li></ol>
         
@@ -540,10 +556,10 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -601,15 +617,15 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/posts/QtStudy/Cpp中回调函数与静态成员/" title="上一篇: Cpp中回调函数与静态成员">
+            <a href="/posts/QtStudy/Cpp中回调函数与静态成员/" title="Pre: Cpp中回调函数与静态成员">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/posts/OpenSource/Qt串口开发QextserialPort/" title="下一篇: Qt串口开发QextserialPort">
+            <a href="/posts/OpenSource/Qt串口开发QextserialPort/" title="Next: Qt串口开发QextserialPort">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -632,14 +648,14 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
                 2016-2017 Mark
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -648,7 +664,7 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -702,9 +718,9 @@ MathJax.Hub.Queue(function() {
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window

@@ -212,6 +212,22 @@ LIBS += -L$$PWD/x64/ -laticonvert
 } else {
 LIBS += -L$$PWD/x86/ -laticonvert
 }
+
+CONFIG+=debug_and_release
+CONFIG(debug, debug|release){
+TARGET = ui_debug
+} else {
+TARGET = ui_release
+}
+
+CONFIG(debug, debug|release) {
+LIBS += -L../lib1 -lhellod
+} else {
+LIBS += -L../lib2 -lhello
+}
+
+CONFIG(debug, debug|release)：LIBS += -L../lib1 -lhellod
+CONFIG(release, debug|release)：LIBS += -L../lib2 -lhello
 </code></pre><p>如果在windows平台下，QMAKE_HOST的arch值中包含x86_64（编译环境为64位），则使用64位库，否则使用32位库。</p>
 <h2 id="通过include-对多个库进行便捷引用和管理"><a href="#通过include-对多个库进行便捷引用和管理" class="headerlink" title="通过include()对多个库进行便捷引用和管理"></a>通过include()对多个库进行便捷引用和管理</h2><pre><code>include(Libraries/CML/LinkCML.pri)
 include(Libraries/BOT/LinkRobot.pri)
@@ -391,9 +407,9 @@ include(Libraries/MillToolCtrl/LinkMillTool.pri)
         
         <tags>
             
-            <tag> OpenLibrary </tag>
-            
             <tag> Cpp </tag>
+            
+            <tag> OpenLibrary </tag>
             
             <tag> Robot </tag>
             
