@@ -23,7 +23,7 @@
 <meta property="og:description" content="Qt 中常见错误即解决办法汇总。当然对其他C++ IDE出现的错误也通用。">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493350900&di=ee7bbb178d19a43d719319e7ca9b306d&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.f0580.com%2Fadmin%2Fkindeditor%2Fattached%2Fimage%2F20150914%2F20150914090035_68430.jpg">
 <meta property="og:image" content="http://i.imgur.com/ab9KPlU.png">
-<meta property="og:updated_time" content="2017-04-21T03:41:52.016Z">
+<meta property="og:updated_time" content="2017-07-06T03:58:45.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Qt 常见错误汇总">
 <meta name="twitter:description" content="Qt 中常见错误即解决办法汇总。当然对其他C++ IDE出现的错误也通用。">
@@ -366,7 +366,9 @@
 <p>  　　5. 当编译调试版的应用程序时，如果采用发行版模态库进行连接也会产生LNK2001；同样，使用调试版模态库连接发行版应用程序时也会产生相同的问题。   </p>
 <p>  　　6. 不同版本的库和编译器的混合使用也能产生问题，因为新版的库里可能包含早先的版本没有的符号和说明。   </p>
 <p>  　　7. 在不同的模块使用内联和非内联的编译选项能够导致LNK2001。如果创建C＋＋库时打开了函数内联（/Ob1或/Ob2），但是在描述该函数的相应头文件里却关闭了函数内联（没有inline关键字），这时将得到该错误信息。为避免该问题的发生，应该在相应的头文件中用inline关键字标志内联函数。   </p>
-<p>  　　8. 不正确的/SUBSYSTEM或/ENTRY设置也能导致LNK2001。  </p>
+<p>  　　8. 不正确的/SUBSYSTEM或/ENTRY设置也能导致LNK2001。  
+  　　</p>
+<h3 id="exited-with-code-1073741515"><a href="#exited-with-code-1073741515" class="headerlink" title="exited with code -1073741515"></a>exited with code -1073741515</h3><p> 程序编译通过，Lib中动态库的入口地址正常加载，但是所需动态链接库未能正常加载。</p>
 
       
     </div>
@@ -378,7 +380,7 @@
         <p><span>Title:</span><a href="/posts/QtStudy/Qt常见错误汇总/">Qt 常见错误汇总</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">Mark</a></p>
         <p><span>Created:</span>2016-12-14, 18:09:10</p>
-        <p><span>Updated:</span>2017-04-21, 11:41:52</p>
+        <p><span>Updated:</span>2017-07-06, 11:58:45</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/posts/QtStudy/Qt常见错误汇总/" title="Qt 常见错误汇总">http://markma.tk/posts/QtStudy/Qt常见错误汇总/</a>
             <span class="copy-path" data-clipboard-text="From http://markma.tk/posts/QtStudy/Qt常见错误汇总/　　By Mark" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -414,7 +416,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Link类错误："><span class="toc-number">1.</span> <span class="toc-text">Link类错误：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Link2019"><span class="toc-number">1.1.</span> <span class="toc-text">Link2019:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Link2001"><span class="toc-number">1.2.</span> <span class="toc-text">Link2001</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Link类错误："><span class="toc-number">1.</span> <span class="toc-text">Link类错误：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Link2019"><span class="toc-number">1.1.</span> <span class="toc-text">Link2019:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Link2001"><span class="toc-number">1.2.</span> <span class="toc-text">Link2001</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exited-with-code-1073741515"><span class="toc-number">1.3.</span> <span class="toc-text">exited with code -1073741515</span></a></li></ol></li></ol>
         
     </div>
     <style>
